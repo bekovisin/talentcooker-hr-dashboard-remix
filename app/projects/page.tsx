@@ -2,6 +2,7 @@
 
 import { Sidebar } from '@/components/Sidebar';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Toaster, toast } from 'sonner';
 import {
   MoreVertical, Users, Layers, Calendar, Plus,
@@ -12,7 +13,6 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Checkbox from '@radix-ui/react-checkbox';
 import { NewProjectModal } from '@/components/NewProjectModal';
-import { ProjectDetailModal } from '@/components/ProjectDetailModal';
 
 // Define types and initial data
 type ProjectStatus = 'Aktif' | 'Durduruldu' | 'Tamamlandı' | 'Arşiv';
@@ -85,12 +85,12 @@ const getStatusColor = (status: ProjectStatus) => {
 };
 
 export default function ProjectsPage() {
+  const router = useRouter();
   const [projects, setProjects] = useState<Project[]>(initialProjects);
   const [filter, setFilter] = useState<'Tümü' | ProjectStatus>('Tümü');
   const [isSelectMode, setIsSelectMode] = useState(false);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [isNewProjectModalOpen, setIsNewProjectModalOpen] = useState(false);
-  const [selectedProjectDetail, setSelectedProjectDetail] = useState<Project | null>(null);
 
   // Modal state
   const [modalConfig, setModalConfig] = useState<{
@@ -375,9 +375,9 @@ export default function ProjectsPage() {
               return (
                 <div
                   key={p.id}
-                  className={`bg-white border rounded-xl shadow-sm flex flex-col transition-all overflow-hidden h-full min-h-[320px] relative ${isSelected ? 'border-indigo-500 ring-1 ring-indigo-500' : 'border-slate-200 hover:border-indigo-300'
-                    } ${isSelectMode ? 'cursor-pointer' : ''}`}
-                  onClick={() => isSelectMode ? toggleSelection(p.id) : null}
+                  className={`bg-white border rounded-xl shadow-sm flex flex-col transition-all overflow-hidden h-full min-h-[320px] relative cursor-pointer ${isSelected ? 'border-indigo-500 ring-1 ring-indigo-500' : 'border-slate-200 hover:border-indigo-300'
+                    }`}
+                  onClick={() => isSelectMode ? toggleSelection(p.id) : router.push(`/projects/${p.id}`)}
                 >
                   {/* Selection Overlay/Checkbox */}
                   {isSelectMode && (
@@ -484,11 +484,8 @@ export default function ProjectsPage() {
 
                       {!isSelectMode && (
                         <div className="flex gap-2">
-                          <button
-                            className="flex-1 py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 text-sm font-bold rounded-lg border border-slate-200 transition-colors"
-                            onClick={() => setSelectedProjectDetail(p)}
-                          >
-                            İlerleme Durumu
+                          <button className="flex-1 py-2 bg-slate-50 hover:bg-slate-100 text-slate-700 text-sm font-bold rounded-lg border border-slate-200 transition-colors">
+                            Detay
                           </button>
                           <button className="flex-1 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-sm font-bold rounded-lg border border-indigo-100 transition-colors">
                             İncele
@@ -551,10 +548,6 @@ export default function ProjectsPage() {
       <NewProjectModal
         isOpen={isNewProjectModalOpen}
         onClose={() => setIsNewProjectModalOpen(false)}
-      />
-      <ProjectDetailModal
-        selectedProject={selectedProjectDetail}
-        onClose={() => setSelectedProjectDetail(null)}
       />
     </div>
   );

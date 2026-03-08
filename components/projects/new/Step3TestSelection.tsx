@@ -33,19 +33,17 @@ export default function Step3TestSelection({
         </div>
         <div className="flex-1 overflow-y-auto p-2 space-y-1">
           {mockTestCategories.map(cat => (
-            <button 
+            <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors text-left ${
-                activeCategory === cat.id 
-                  ? 'bg-indigo-50 text-indigo-700 font-bold' 
+              className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors text-left ${activeCategory === cat.id
+                  ? 'bg-indigo-50 text-indigo-700 font-bold'
                   : 'text-slate-600 hover:bg-slate-50 font-medium'
-              }`}
+                }`}
             >
               <span className="text-xs truncate pr-2">{cat.title}</span>
-              <span className={`text-[10px] px-2 py-0.5 rounded-full shrink-0 ${
-                activeCategory === cat.id ? 'bg-indigo-100 text-indigo-700' : 'bg-slate-100 text-slate-500'
-              }`}>
+              <span className={`text-[10px] px-2 py-0.5 rounded-full shrink-0 ${activeCategory === cat.id ? 'bg-indigo-100 text-indigo-700' : 'bg-slate-100 text-slate-500'
+                }`}>
                 {cat.count}
               </span>
             </button>
@@ -65,18 +63,18 @@ export default function Step3TestSelection({
           </div>
         </div>
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
-          {mockTestCategories.find(c => c.id === activeCategory)?.tests?.map(test => (
+          {mockTestCategories.find(c => c.id === activeCategory)?.tests?.map((test: any) => (
             <div key={test.id} className="bg-white border border-slate-200 rounded-xl p-3 hover:border-indigo-300 transition-all flex flex-col gap-2.5 group">
               <div className="flex justify-between items-start">
                 <h4 className="font-bold text-slate-900 text-sm leading-tight pr-2">{test.title}</h4>
                 <div className="flex items-center gap-2 shrink-0">
-                  <button 
+                  <button
                     onClick={() => setDetailTest(test)}
                     className="text-indigo-600 text-[11px] font-bold hover:text-indigo-700 transition-colors underline underline-offset-2"
                   >
                     Detayı Gör
                   </button>
-                  <button 
+                  <button
                     onClick={() => addTest(test)}
                     className="bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-lg text-xs font-bold hover:bg-indigo-100 transition-colors flex items-center gap-1"
                   >
@@ -84,7 +82,7 @@ export default function Step3TestSelection({
                   </button>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-2 flex-wrap">
                 <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${test.levelColor}`}>{test.level}</span>
                 <div className="flex gap-1">
@@ -100,17 +98,17 @@ export default function Step3TestSelection({
                 </div>
                 <div className="w-px h-3 bg-slate-200 mx-0.5"></div>
                 <div className="flex items-center gap-2 text-[10px] font-medium text-slate-500">
-                  <span className="flex items-center gap-1"><List size={12} className="text-slate-400"/> {test.questions} soru</span>
-                  <span className="flex items-center gap-1"><Clock size={12} className="text-slate-400"/> {test.time} dk</span>
-                  <span className="flex items-center gap-1"><Target size={12} className="text-slate-400"/> %{test.passRate}</span>
+                  <span className="flex items-center gap-1"><List size={12} className="text-slate-400" /> {test.questions} soru</span>
+                  <span className="flex items-center gap-1"><Clock size={12} className="text-slate-400" /> {test.time} dk</span>
+                  <span className="flex items-center gap-1"><Target size={12} className="text-slate-400" /> %{test.passRate}</span>
                 </div>
               </div>
             </div>
           )) || (
-            <div className="h-full flex flex-col items-center justify-center text-slate-400 text-xs">
-              Bu kategoride henüz test bulunmuyor.
-            </div>
-          )}
+              <div className="h-full flex flex-col items-center justify-center text-slate-400 text-xs">
+                Bu kategoride henüz test bulunmuyor.
+              </div>
+            )}
         </div>
       </div>
 
@@ -142,45 +140,45 @@ export default function Step3TestSelection({
                     <div className="flex-1 min-w-0">
                       <h4 className="font-bold text-slate-900 text-sm leading-tight mb-1.5 pr-8">{test.title}</h4>
                       <div className="flex items-center gap-2 text-[11px] font-medium text-slate-500 flex-wrap">
-                        <span className="flex items-center gap-1"><List size={12}/> {test.questions} soru</span>
+                        <span className="flex items-center gap-1"><List size={12} /> {test.questions} soru</span>
                         <div className="w-1 h-1 rounded-full bg-slate-300"></div>
-                        <span className="flex items-center gap-1"><Clock size={12}/> {test.time} dk</span>
+                        <span className="flex items-center gap-1"><Clock size={12} /> {test.time} dk</span>
                         <div className="w-1 h-1 rounded-full bg-slate-300"></div>
-                        <span className="flex items-center gap-1"><Target size={12}/> %{test.passRate}</span>
+                        <span className="flex items-center gap-1"><Target size={12} /> %{test.passRate}</span>
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Actions */}
                   <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
-                    <button 
-                      onClick={() => moveTest(index, -1)} 
-                      disabled={index === 0} 
+                    <button
+                      onClick={() => moveTest(index, -1)}
+                      disabled={index === 0}
                       className="p-1.5 text-slate-400 hover:text-indigo-600 disabled:opacity-30 disabled:hover:text-slate-400 transition-colors bg-slate-50 hover:bg-indigo-50 rounded"
                     >
-                      <ChevronUp size={14}/>
+                      <ChevronUp size={14} />
                     </button>
-                    <button 
-                      onClick={() => moveTest(index, 1)} 
-                      disabled={index === selectedTests.length - 1} 
+                    <button
+                      onClick={() => moveTest(index, 1)}
+                      disabled={index === selectedTests.length - 1}
                       className="p-1.5 text-slate-400 hover:text-indigo-600 disabled:opacity-30 disabled:hover:text-slate-400 transition-colors bg-slate-50 hover:bg-indigo-50 rounded"
                     >
-                      <ChevronDown size={14}/>
+                      <ChevronDown size={14} />
                     </button>
                     <div className="w-px h-4 bg-slate-200 mx-1"></div>
-                    <button 
+                    <button
                       onClick={() => setEditTest(test)}
                       className="p-1.5 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded transition-colors"
                       title="Düzenle"
                     >
-                      <Edit2 size={14}/>
+                      <Edit2 size={14} />
                     </button>
-                    <button 
-                      onClick={() => removeTest(test.id)} 
+                    <button
+                      onClick={() => removeTest(test.id)}
                       className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded transition-colors"
                       title="Sil"
                     >
-                      <Trash2 size={14}/>
+                      <Trash2 size={14} />
                     </button>
                   </div>
                 </div>

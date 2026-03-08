@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Search, X, User, Brain, Wrench, MessageCircle } from 'lucide-react';
-import { Template, TemplateStage } from '../NewProjectModal';
+import { Template, TemplateStage } from '../../NewProjectModal';
 
 const getTypeStyles = (type: TemplateStage['type']) => {
   switch (type) {
@@ -25,7 +25,7 @@ export function TemplateSelection({ templates, onClose }: TemplateSelectionProps
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTemplateId, setSelectedTemplateId] = useState<string>(templates[1].id);
 
-  const filteredTemplates = templates.filter(t => 
+  const filteredTemplates = templates.filter(t =>
     t.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -37,12 +37,12 @@ export function TemplateSelection({ templates, onClose }: TemplateSelectionProps
       <div className="flex-1 flex flex-col h-1/2 md:h-full overflow-hidden border-b md:border-b-0 md:border-r border-slate-100">
         <div className="p-6 pb-4 shrink-0">
           <h2 className="text-xl font-bold text-[#1E1B4B] text-center mb-6">Tüm Şablonlar</h2>
-          
+
           <div className="relative max-w-[700px] mx-auto">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
-            <input 
-              type="text" 
-              placeholder="Şablon ara" 
+            <input
+              type="text"
+              placeholder="Şablon ara"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-4 py-2.5 bg-[#F8F9FA] border-none rounded-lg text-slate-700 focus:ring-2 focus:ring-indigo-500 outline-none text-sm"
@@ -55,20 +55,19 @@ export function TemplateSelection({ templates, onClose }: TemplateSelectionProps
             {filteredTemplates.map((template) => {
               const isSelected = selectedTemplateId === template.id;
               const totalDuration = template.stages.reduce((acc, stage) => acc + stage.duration, 0);
-              
+
               return (
                 <button
                   key={template.id}
                   onClick={() => setSelectedTemplateId(template.id)}
-                  className={`relative flex flex-col items-center justify-center p-4 rounded-lg border transition-all aspect-[4/3] overflow-hidden group ${
-                    isSelected 
-                      ? 'border-indigo-600 shadow-[0_0_0_1px_rgba(79,70,229,1)] bg-white' 
+                  className={`relative flex flex-col items-center justify-center p-4 rounded-lg border transition-all aspect-[4/3] overflow-hidden group ${isSelected
+                      ? 'border-indigo-600 shadow-[0_0_0_1px_rgba(79,70,229,1)] bg-white'
                       : 'border-slate-200 bg-white hover:border-indigo-300 hover:shadow-sm'
-                  }`}
+                    }`}
                 >
-                  <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
-                       style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '24px 24px' }} />
-                  
+                  <div className="absolute inset-0 opacity-[0.02] pointer-events-none"
+                    style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+
                   <h3 className={`text-center font-bold text-sm leading-snug relative z-10 ${isSelected ? 'text-indigo-600' : 'text-[#1E1B4B]'}`}>
                     {template.title}
                   </h3>
@@ -129,7 +128,7 @@ export function TemplateSelection({ templates, onClose }: TemplateSelectionProps
 
         {/* Fixed Bottom Action */}
         <div className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-slate-50 via-slate-50 to-transparent">
-          <button 
+          <button
             onClick={() => onClose()}
             className="w-full py-3 bg-[#312E81] hover:bg-[#1E1B4B] text-white rounded-lg font-medium text-sm transition-colors shadow-md"
           >
