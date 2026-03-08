@@ -43,11 +43,11 @@ const stages = [
 
 export function ProjectStageProgress() {
   return (
-    <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-5 sm:p-6 h-full flex flex-col">
+    <div className="bg-white rounded-2xl border border-slate-200 shadow-[0_1px_3px_rgb(0_0_0/0.02)] p-5 sm:p-6 h-full flex flex-col">
       <div className="flex items-center justify-between mb-6 sm:mb-8">
         <h2 className="text-lg font-bold text-slate-900">Aşama İlerleme Durumu</h2>
       </div>
-      
+
       <div className="flex-1 flex flex-col gap-8">
         {stages.map((stage) => {
           const completedPct = (stage.completed / stage.total) * 100;
@@ -76,16 +76,16 @@ export function ProjectStageProgress() {
 
               {/* Progress Bar */}
               <div className="h-3 w-full rounded-full overflow-hidden flex bg-slate-200">
-                <div 
-                  className="h-full bg-[#22c55e] transition-all duration-1000 ease-out" 
+                <div
+                  className="h-full bg-[#22c55e] transition-all duration-1000 ease-out"
                   style={{ width: `${completedPct}%` }}
                 />
-                <div 
-                  className="h-full bg-[#eab308] transition-all duration-1000 ease-out" 
+                <div
+                  className="h-full bg-[#eab308] transition-all duration-1000 ease-out"
                   style={{ width: `${inProgressPct}%` }}
                 />
-                <div 
-                  className="h-full bg-[#e2e8f0] transition-all duration-1000 ease-out" 
+                <div
+                  className="h-full bg-[#e2e8f0] transition-all duration-1000 ease-out"
                   style={{ width: `${waitingPct}%` }}
                 />
               </div>

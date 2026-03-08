@@ -84,9 +84,9 @@ export function ProjectStats() {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
       {stats.map((stat, index) => (
-        <div key={index} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col justify-between group">
+        <div key={index} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-[0_1px_3px_rgb(0_0_0/0.02)] flex flex-col justify-between group">
           <div className="flex justify-between items-start mb-4">
             <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${stat.bgColor} ${stat.color}`}>
               <stat.icon size={20} />
@@ -96,8 +96,8 @@ export function ProjectStats() {
                 <AreaChart data={stat.chartData}>
                   <defs>
                     <linearGradient id={`color-${index}`} x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor={stat.chartColor} stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor={stat.chartColor} stopOpacity={0}/>
+                      <stop offset="5%" stopColor={stat.chartColor} stopOpacity={0.3} />
+                      <stop offset="95%" stopColor={stat.chartColor} stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <Tooltip content={<CustomTooltip />} />
@@ -112,7 +112,7 @@ export function ProjectStats() {
               <p className="text-3xl font-black text-slate-900">{stat.value}</p>
             </div>
             <span className={`text-xs font-semibold px-2 py-1 rounded flex items-center gap-1 mb-1 ${stat.badgeColor}`}>
-              {stat.change} 
+              {stat.change}
               {stat.trend === 'up' && <TrendingUp size={14} />}
               {stat.trend === 'down' && <TrendingUp size={14} className="transform rotate-180" />}
               {stat.trend === 'neutral' && <Minus size={14} />}

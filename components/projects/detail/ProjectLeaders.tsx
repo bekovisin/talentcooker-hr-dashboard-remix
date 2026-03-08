@@ -76,46 +76,46 @@ export function ProjectLeaders() {
 
   const getThemeClasses = (theme: string) => {
     switch (theme) {
-      case 'emerald': return { 
-        bg: 'bg-emerald-50/50 border-emerald-100', 
-        text: 'text-emerald-950', 
-        textMuted: 'text-emerald-700', 
-        badge: 'bg-emerald-100 text-emerald-800 border-emerald-200', 
-        circleBg: 'text-emerald-200', 
-        circleProgress: 'text-emerald-500', 
+      case 'emerald': return {
+        bg: 'bg-emerald-50/50 border-emerald-100',
+        text: 'text-emerald-950',
+        textMuted: 'text-emerald-700',
+        badge: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+        circleBg: 'text-emerald-200',
+        circleProgress: 'text-emerald-500',
         btn: 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-emerald-600/20',
         dotActive: 'bg-emerald-500',
         dotInactive: 'bg-emerald-200 hover:bg-emerald-300'
       };
-      case 'blue': return { 
-        bg: 'bg-blue-50/50 border-blue-100', 
-        text: 'text-blue-950', 
-        textMuted: 'text-blue-700', 
-        badge: 'bg-blue-100 text-blue-800 border-blue-200', 
-        circleBg: 'text-blue-200', 
-        circleProgress: 'text-blue-500', 
+      case 'blue': return {
+        bg: 'bg-blue-50/50 border-blue-100',
+        text: 'text-blue-950',
+        textMuted: 'text-blue-700',
+        badge: 'bg-blue-100 text-blue-800 border-blue-200',
+        circleBg: 'text-blue-200',
+        circleProgress: 'text-blue-500',
         btn: 'bg-blue-600 text-white hover:bg-blue-700 shadow-blue-600/20',
         dotActive: 'bg-blue-500',
         dotInactive: 'bg-blue-200 hover:bg-blue-300'
       };
-      case 'purple': return { 
-        bg: 'bg-purple-50/50 border-purple-100', 
-        text: 'text-purple-950', 
-        textMuted: 'text-purple-700', 
-        badge: 'bg-purple-100 text-purple-800 border-purple-200', 
-        circleBg: 'text-purple-200', 
-        circleProgress: 'text-purple-500', 
+      case 'purple': return {
+        bg: 'bg-purple-50/50 border-purple-100',
+        text: 'text-purple-950',
+        textMuted: 'text-purple-700',
+        badge: 'bg-purple-100 text-purple-800 border-purple-200',
+        circleBg: 'text-purple-200',
+        circleProgress: 'text-purple-500',
         btn: 'bg-purple-600 text-white hover:bg-purple-700 shadow-purple-600/20',
         dotActive: 'bg-purple-500',
         dotInactive: 'bg-purple-200 hover:bg-purple-300'
       };
-      default: return { 
-        bg: 'bg-slate-50 border-slate-100', 
-        text: 'text-slate-900', 
-        textMuted: 'text-slate-600', 
-        badge: 'bg-slate-100 text-slate-800 border-slate-200', 
-        circleBg: 'text-slate-200', 
-        circleProgress: 'text-slate-500', 
+      default: return {
+        bg: 'bg-slate-50 border-slate-100',
+        text: 'text-slate-900',
+        textMuted: 'text-slate-600',
+        badge: 'bg-slate-100 text-slate-800 border-slate-200',
+        circleBg: 'text-slate-200',
+        circleProgress: 'text-slate-500',
         btn: 'bg-slate-800 text-white hover:bg-slate-900 shadow-slate-800/20',
         dotActive: 'bg-slate-500',
         dotInactive: 'bg-slate-200 hover:bg-slate-300'
@@ -128,19 +128,19 @@ export function ProjectLeaders() {
   const circumference = 2 * Math.PI * radius;
 
   return (
-    <div className={`relative rounded-2xl border shadow-sm p-5 sm:p-6 h-full flex flex-col overflow-hidden transition-colors duration-700 font-[family-name:var(--font-manrope)] ${themeClasses.bg}`}>
-      
+    <div className={`relative rounded-2xl border shadow-[0_1px_3px_rgb(0_0_0/0.02)] p-5 sm:p-6 h-full flex flex-col overflow-hidden transition-colors duration-700 font-[family-name:var(--font-manrope)] ${themeClasses.bg}`}>
+
       {/* Header */}
       <div className="flex items-center justify-between mb-4 relative z-10">
         <h2 className={`text-sm font-bold uppercase tracking-wider ${themeClasses.text}`}>Öne Çıkan Adaylar</h2>
         <div className="flex items-center gap-1">
-          <button 
+          <button
             onClick={prev}
             className="w-7 h-7 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center transition-colors"
           >
             <ChevronLeft size={16} className={themeClasses.text} />
           </button>
-          <button 
+          <button
             onClick={next}
             className="w-7 h-7 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center transition-colors"
           >
@@ -162,7 +162,7 @@ export function ProjectLeaders() {
             className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
           >
             {/* Top Badge */}
-            <motion.div 
+            <motion.div
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, type: "spring" }}
@@ -175,17 +175,17 @@ export function ProjectLeaders() {
             {/* Animated Score Circle */}
             <div className="relative w-48 h-48 flex items-center justify-center shrink-0 mb-3">
               <svg className="w-full h-full transform -rotate-90">
-                <circle 
-                  cx="50%" cy="50%" r={radius} 
-                  stroke="currentColor" 
-                  strokeWidth="10" 
-                  fill="transparent" 
-                  className={themeClasses.circleBg} 
+                <circle
+                  cx="50%" cy="50%" r={radius}
+                  stroke="currentColor"
+                  strokeWidth="10"
+                  fill="transparent"
+                  className={themeClasses.circleBg}
                 />
                 <motion.circle
-                  cx="50%" cy="50%" r={radius} 
-                  stroke="currentColor" 
-                  strokeWidth="10" 
+                  cx="50%" cy="50%" r={radius}
+                  stroke="currentColor"
+                  strokeWidth="10"
                   fill="transparent"
                   strokeLinecap="round"
                   className={themeClasses.circleProgress}
@@ -196,7 +196,7 @@ export function ProjectLeaders() {
                 />
               </svg>
               <div className="absolute inset-0 flex flex-col items-center justify-center pt-1">
-                <motion.span 
+                <motion.span
                   initial={{ scale: 0.5, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.4 }}
@@ -204,7 +204,7 @@ export function ProjectLeaders() {
                 >
                   {currentLeader.score}
                 </motion.span>
-                <motion.span 
+                <motion.span
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
@@ -226,7 +226,7 @@ export function ProjectLeaders() {
             </div>
 
             {/* Action Button */}
-            <button 
+            <button
               onClick={() => router.push('/tasarim')}
               className={`flex items-center justify-center gap-1.5 w-full max-w-[240px] py-3 rounded-xl shadow-sm text-sm font-bold transition-all hover:-translate-y-0.5 ${themeClasses.btn}`}
             >
@@ -235,7 +235,7 @@ export function ProjectLeaders() {
           </motion.div>
         </AnimatePresence>
       </div>
-      
+
       {/* Pagination Dots */}
       <div className="flex justify-center gap-2 mt-4 relative z-10">
         {leaders.map((_, idx) => (
@@ -245,9 +245,8 @@ export function ProjectLeaders() {
               setDirection(idx > currentIndex ? 1 : -1);
               setCurrentIndex(idx);
             }}
-            className={`h-1.5 rounded-full transition-all duration-500 ${
-              idx === currentIndex ? `w-6 ${themeClasses.dotActive}` : `w-1.5 ${themeClasses.dotInactive}`
-            }`}
+            className={`h-1.5 rounded-full transition-all duration-500 ${idx === currentIndex ? `w-6 ${themeClasses.dotActive}` : `w-1.5 ${themeClasses.dotInactive}`
+              }`}
           />
         ))}
       </div>

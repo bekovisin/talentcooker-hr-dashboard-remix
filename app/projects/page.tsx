@@ -363,72 +363,69 @@ export default function ProjectsPage() {
           </header>
 
           {/* Tabs Menu & Controls */}
-          <div className="bg-white  flex justify-center">
-            <div className="w-full max-w-[1400px] pr-4 pl-16 lg:px-8 pt-3 flex items-end justify-between overflow-x-auto no-scrollbar">
-              <div className="flex gap-6 -mb-[1px]">
-                {['Tümü', 'Aktif', 'Durduruldu', 'Tamamlandı', 'Arşiv'].map((tab) => (
-                  <button
-                    key={tab}
-                    onClick={() => setFilter(tab as any)}
-                    className={`pb-3 text-sm font-medium border-b-[3px] transition-colors whitespace-nowrap ${filter === tab ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'}`}
-                  >
-                    {tab}
+          <div className="bg-white shrink-0 pr-4 pl-16 lg:px-8 pt-3 flex items-end justify-between overflow-x-auto no-scrollbar">
+            <div className="flex gap-4 sm:gap-6 -mb-[1px]">
+              {['Tümü', 'Aktif', 'Durduruldu', 'Tamamlandı', 'Arşiv'].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setFilter(tab as any)}
+                  className={`pb-3 text-sm font-medium border-b-[3px] transition-colors whitespace-nowrap ${filter === tab ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'}`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+
+            {/* Controls */}
+            <div className="flex items-center gap-2 sm:gap-3 pb-3">
+              {/* Sorting */}
+              <DropdownMenu.Root>
+                <DropdownMenu.Trigger asChild>
+                  <button className="flex items-center gap-1.5 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg border border-slate-200 bg-white text-[13px] sm:text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors whitespace-nowrap">
+                    Sırala: Yeniden Eskiye
+                    <ChevronDown size={14} className="text-slate-400" />
                   </button>
-                ))}
-              </div>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Portal>
+                  <DropdownMenu.Content align="end" className="z-50 min-w-[180px] bg-white rounded-lg shadow-lg border border-slate-200 p-1 animate-in fade-in-80 zoom-in-95">
+                    <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Yeniden Eskiye</DropdownMenu.Item>
+                    <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Eskiden Yeniye</DropdownMenu.Item>
+                    <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">A-Z</DropdownMenu.Item>
+                    <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Z-A</DropdownMenu.Item>
+                  </DropdownMenu.Content>
+                </DropdownMenu.Portal>
+              </DropdownMenu.Root>
 
-              {/* Controls */}
-              <div className="flex items-center gap-3 pb-3">
-                {/* Sorting */}
-                <DropdownMenu.Root>
-                  <DropdownMenu.Trigger asChild>
-                    <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors">
-                      Sırala: Yeniden Eskiye
-                      <ChevronDown size={14} className="text-slate-400" />
-                    </button>
-                  </DropdownMenu.Trigger>
-                  <DropdownMenu.Portal>
-                    <DropdownMenu.Content align="end" className="z-50 min-w-[180px] bg-white rounded-lg shadow-lg border border-slate-200 p-1 animate-in fade-in-80 zoom-in-95">
-                      <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Yeniden Eskiye</DropdownMenu.Item>
-                      <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Eskiden Yeniye</DropdownMenu.Item>
-                      <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">A-Z</DropdownMenu.Item>
-                      <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Z-A</DropdownMenu.Item>
-                    </DropdownMenu.Content>
-                  </DropdownMenu.Portal>
-                </DropdownMenu.Root>
-
-                {/* Select Mode Toggle */}
-                {!isSelectMode ? (
+              {/* Select Mode Toggle */}
+              {!isSelectMode ? (
+                <button
+                  onClick={() => setIsSelectMode(true)}
+                  className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+                >
+                  Seç
+                </button>
+              ) : (
+                <div className="flex items-center gap-2">
                   <button
-                    onClick={() => setIsSelectMode(true)}
+                    onClick={toggleSelectAll}
+                    className="px-3 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 text-sm font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
+                  >
+                    {selectedIds.size === filteredProjects.length ? 'Seçimi Temizle' : 'Tümünü Seç'}
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsSelectMode(false);
+                      setSelectedIds(new Set());
+                    }}
                     className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                   >
-                    Seç
+                    İptal
                   </button>
-                ) : (
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={toggleSelectAll}
-                      className="px-3 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 text-sm font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
-                    >
-                      {selectedIds.size === filteredProjects.length ? 'Seçimi Temizle' : 'Tümünü Seç'}
-                    </button>
-                    <button
-                      onClick={() => {
-                        setIsSelectMode(false);
-                        setSelectedIds(new Set());
-                      }}
-                      className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
-                    >
-                      İptal
-                    </button>
-                  </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
-
 
         {/* Scrollable Main Area */}
         <div className="flex-1 overflow-y-auto w-full relative">
@@ -636,10 +633,11 @@ export default function ProjectsPage() {
             </div>
           </div>
         </div>
-      </main>
+      </main >
 
       {/* Warning Modal */}
-      <Dialog.Root open={modalConfig.isOpen} onOpenChange={(open) => !open && closeModal()}>
+      < Dialog.Root open={modalConfig.isOpen} onOpenChange={(open) => !open && closeModal()
+      }>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 animate-in fade-in-0" />
           <Dialog.Content className="fixed left-[50%] top-[50%] z-50 grid w-full max-w-md translate-x-[-50%] translate-y-[-50%] gap-4 border border-slate-200 bg-white p-6 shadow-xl rounded-xl animate-in fade-in-0 zoom-in-95 slide-in-from-left-1/2 slide-in-from-top-[48%]">
@@ -678,7 +676,7 @@ export default function ProjectsPage() {
             </Dialog.Close>
           </Dialog.Content>
         </Dialog.Portal>
-      </Dialog.Root>
+      </Dialog.Root >
 
       <Toaster position="top-right" richColors />
 
@@ -686,6 +684,6 @@ export default function ProjectsPage() {
         isOpen={isNewProjectModalOpen}
         onClose={() => setIsNewProjectModalOpen(false)}
       />
-    </div>
+    </div >
   );
 }

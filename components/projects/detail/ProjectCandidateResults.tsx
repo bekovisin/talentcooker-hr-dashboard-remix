@@ -37,8 +37,8 @@ function MatchScoreBadge({ score }: { score: number }) {
 function HighIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="7" cy="7" r="7" fill="#10B981"/>
-      <path d="M4 7L6 9L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="7" cy="7" r="7" fill="#10B981" />
+      <path d="M4 7L6 9L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -46,8 +46,8 @@ function HighIcon() {
 function MediumIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="7" cy="7" r="7" fill="#F59E0B"/>
-      <path d="M4 7H10" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="7" cy="7" r="7" fill="#F59E0B" />
+      <path d="M4 7H10" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -55,8 +55,8 @@ function MediumIcon() {
 function LowIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="7" cy="7" r="7" fill="#EF4444"/>
-      <path d="M4.5 4.5L9.5 9.5M9.5 4.5L4.5 9.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="7" cy="7" r="7" fill="#EF4444" />
+      <path d="M4.5 4.5L9.5 9.5M9.5 4.5L4.5 9.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -76,7 +76,7 @@ function SkillBadge({ score, mode }: { score: number, mode: 'level' | 'score' })
       colorClass = "text-amber-700 bg-amber-50";
       iconColor = "text-amber-500";
     }
-    
+
     return (
       <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold transition-transform hover:scale-110 cursor-default ${colorClass}`}>
         <svg className={`w-3.5 h-3.5 ${iconColor}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -116,8 +116,8 @@ function Pagination({ page, totalPages, onPageChange, rowsPerPage, onRowsChange,
     <div className="flex flex-col sm:flex-row items-center justify-between px-4 py-3 border-t border-slate-100 bg-white shrink-0 gap-3">
       <div className="flex items-center gap-2">
         <span className="text-xs text-slate-500 font-medium">Göster:</span>
-        <select 
-          value={rowsPerPage} 
+        <select
+          value={rowsPerPage}
           onChange={(e) => onRowsChange(Number(e.target.value))}
           className="text-xs border border-slate-200 rounded px-2 py-1 bg-slate-50 text-slate-700 outline-none focus:border-indigo-500 font-medium cursor-pointer"
         >
@@ -125,8 +125,8 @@ function Pagination({ page, totalPages, onPageChange, rowsPerPage, onRowsChange,
         </select>
       </div>
       <div className="flex items-center gap-3">
-        <button 
-          disabled={page <= 1} 
+        <button
+          disabled={page <= 1}
           onClick={() => onPageChange(page - 1)}
           className="p-1 rounded border border-slate-200 text-slate-500 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
@@ -135,8 +135,8 @@ function Pagination({ page, totalPages, onPageChange, rowsPerPage, onRowsChange,
         <span className="text-xs text-slate-600 font-medium min-w-[70px] text-center">
           Sayfa {page} / {Math.max(1, totalPages)}
         </span>
-        <button 
-          disabled={page >= totalPages} 
+        <button
+          disabled={page >= totalPages}
           onClick={() => onPageChange(page + 1)}
           className="p-1 rounded border border-slate-200 text-slate-500 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
@@ -151,7 +151,7 @@ function SortIcon({ columnKey, sortConfig }: { columnKey: string, sortConfig: { 
   if (sortConfig?.key !== columnKey) {
     return <ArrowUpDown size={12} className="text-slate-300 ml-1 inline-block" />;
   }
-  return sortConfig.direction === 'asc' 
+  return sortConfig.direction === 'asc'
     ? <ArrowUp size={12} className="text-indigo-500 ml-1 inline-block" />
     : <ArrowDown size={12} className="text-indigo-500 ml-1 inline-block" />;
 }
@@ -234,7 +234,7 @@ export function ProjectCandidateResults() {
   };
 
   return (
-    <div className="bg-white border border-slate-200 rounded-lg shadow-sm flex flex-col overflow-hidden h-full min-h-[500px]">
+    <div className="bg-white border border-slate-200 rounded-lg shadow-[0_1px_3px_rgb(0_0_0/0.02)] flex flex-col overflow-hidden h-full min-h-[500px]">
       <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-slate-50/50 shrink-0">
         <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto">
           <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Aday Sonuçları</h3>
@@ -245,13 +245,13 @@ export function ProjectCandidateResults() {
         </div>
         <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto justify-between sm:justify-end">
           <div className="flex items-center bg-slate-100 rounded-lg p-0.5 border border-slate-200">
-            <button 
+            <button
               onClick={() => setDisplayMode('level')}
               className={`px-3 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all ${displayMode === 'level' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
             >
               Seviye
             </button>
-            <button 
+            <button
               onClick={() => setDisplayMode('score')}
               className={`px-3 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all ${displayMode === 'score' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
             >
@@ -264,7 +264,7 @@ export function ProjectCandidateResults() {
           </button>
         </div>
       </div>
-      
+
       <div className="flex-1 overflow-x-auto">
         <table className="w-full text-left border-collapse min-w-[800px]">
           <thead>
@@ -310,13 +310,13 @@ export function ProjectCandidateResults() {
           </tbody>
         </table>
       </div>
-      <Pagination 
-        page={page} 
-        totalPages={Math.ceil(initialCandidates.length / rowsPerPage)} 
-        onPageChange={setPage} 
-        rowsPerPage={rowsPerPage} 
-        onRowsChange={(val: number) => { setRowsPerPage(val); setPage(1); }} 
-        rowsOptions={[5, 10, 20]} 
+      <Pagination
+        page={page}
+        totalPages={Math.ceil(initialCandidates.length / rowsPerPage)}
+        onPageChange={setPage}
+        rowsPerPage={rowsPerPage}
+        onRowsChange={(val: number) => { setRowsPerPage(val); setPage(1); }}
+        rowsOptions={[5, 10, 20]}
       />
     </div>
   );
