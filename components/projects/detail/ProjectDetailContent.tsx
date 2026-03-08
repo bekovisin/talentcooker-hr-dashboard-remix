@@ -24,13 +24,13 @@ export function ProjectDetailContent({ projectId }: { projectId: string }) {
       <ProjectHeader projectId={projectId} />
 
       {/* Tabs Menu & Controls */}
-      <div className="px-4 pl-16 lg:px-8 pt-3 border-b border-slate-200 bg-white shrink-0 flex items-end justify-between overflow-x-auto no-scrollbar pb-3">
+      <div className="px-4 pl-16 lg:px-8 pt-3 border-b border-slate-200 bg-white shrink-0 flex items-end justify-between overflow-x-auto no-scrollbar">
         <div className="flex gap-6 sm:gap-8 -mb-[1px]">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`pb-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${activeTab === tab.id
+              className={`pb-3 text-base font-medium border-b-2 transition-colors whitespace-nowrap ${activeTab === tab.id
                 ? 'border-indigo-600 text-indigo-600'
                 : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'
                 }`}
@@ -41,7 +41,7 @@ export function ProjectDetailContent({ projectId }: { projectId: string }) {
         </div>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 pb-3">
           <button className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-1.5 bg-indigo-50 text-indigo-700 hover:bg-indigo-100 rounded-lg text-sm font-medium transition-colors">
             <Mail size={16} />
             <span className="inline">E-posta Gönder</span>

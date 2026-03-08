@@ -363,13 +363,13 @@ export default function ProjectsPage() {
           </header>
 
           {/* Tabs Menu & Controls */}
-          <div className="pr-4 pl-16 lg:px-8 pt-3 flex items-end justify-between overflow-x-auto no-scrollbar pb-3">
+          <div className="pr-4 pl-16 lg:px-8 pt-3 flex items-end justify-between overflow-x-auto no-scrollbar">
             <div className="flex gap-6 -mb-[1px]">
               {['Tümü', 'Aktif', 'Durduruldu', 'Tamamlandı', 'Arşiv'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setFilter(tab as any)}
-                  className={`pb-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${filter === tab ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'}`}
+                  className={`pb-3 text-base font-medium border-b-2 transition-colors whitespace-nowrap ${filter === tab ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'}`}
                 >
                   {tab}
                 </button>
@@ -377,7 +377,7 @@ export default function ProjectsPage() {
             </div>
 
             {/* Controls */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 pb-3">
               {/* Sorting */}
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger asChild>
