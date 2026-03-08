@@ -80,32 +80,32 @@ export function ProjectDetailContent({ projectId }: { projectId: string }) {
             </DropdownMenu.Root>
           </div>
         </div>
-
-        {/* Tab Content */}
-        <div className="flex-1 overflow-y-auto p-4 lg:p-8">
-          {activeTab === 'dashboard' && <ProjectDashboardTab projectId={projectId} onTabChange={setActiveTab} />}
-          {activeTab === 'candidates' && <ProjectCandidatesTab projectId={projectId} />}
-          {activeTab === 'tracking' && (
-            <div className="flex items-center justify-center h-full text-slate-500">
-              Anlık Takip sekmesi içeriği
-            </div>
-          )}
-          {activeTab === 'ai-summary' && (
-            <div className="flex flex-col items-center justify-center h-full text-slate-500 gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
-                <Sparkles size={32} />
-              </div>
-              <h2 className="text-xl font-bold text-slate-900">AI Yönetici Özeti Raporu</h2>
-              <p className="max-w-md text-center">Bu alanda yapay zeka tarafından oluşturulmuş detaylı proje analizi ve aday değerlendirmeleri yer alacaktır.</p>
-            </div>
-          )}
-          {activeTab === 'details' && (
-            <div className="flex items-center justify-center h-full text-slate-500">
-              Detaylar sekmesi içeriği
-            </div>
-          )}
-        )}
-        </div>
       </div>
-      );
+
+      {/* Tab Content */}
+      <div className="flex-1 overflow-y-auto p-4 lg:p-8">
+        {activeTab === 'dashboard' && <ProjectDashboardTab projectId={projectId} onTabChange={setActiveTab} />}
+        {activeTab === 'candidates' && <ProjectCandidatesTab projectId={projectId} />}
+        {activeTab === 'tracking' && (
+          <div className="flex items-center justify-center h-full text-slate-500">
+            Anlık Takip sekmesi içeriği
+          </div>
+        )}
+        {activeTab === 'ai-summary' && (
+          <div className="flex flex-col items-center justify-center h-full text-slate-500 gap-4">
+            <div className="w-16 h-16 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
+              <Sparkles size={32} />
+            </div>
+            <h2 className="text-xl font-bold text-slate-900">AI Yönetici Özeti Raporu</h2>
+            <p className="max-w-md text-center">Bu alanda yapay zeka tarafından oluşturulmuş detaylı proje analizi ve aday değerlendirmeleri yer alacaktır.</p>
+          </div>
+        )}
+        {activeTab === 'details' && (
+          <div className="flex items-center justify-center h-full text-slate-500">
+            Detaylar sekmesi içeriği
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
