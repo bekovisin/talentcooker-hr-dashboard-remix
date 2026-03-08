@@ -229,81 +229,83 @@ export default function ProjectsPage() {
       <Sidebar />
       <main className="flex-1 min-w-0 overflow-y-auto relative">
         {/* Header Area */}
-        <div className="px-4 lg:px-8 pt-20 lg:pt-8 flex flex-col gap-6 bg-white border-b border-slate-200">
-          <div className="flex justify-between items-end">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
-                <Layers size={20} />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-slate-900 mb-1">Projeler</h1>
-                <p className="text-sm text-slate-500 hidden sm:block">Tüm işe alım projelerinizi buradan yönetin.</p>
+        <div className="bg-white border-b border-slate-200">
+          <div className="w-full max-w-[1400px] mx-auto px-4 lg:px-8 pt-20 lg:pt-8 flex flex-col gap-6">
+            <div className="flex justify-between items-end">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
+                  <Layers size={20} />
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-slate-900 mb-1">Projeler</h1>
+                  <p className="text-sm text-slate-500 hidden sm:block">Tüm işe alım projelerinizi buradan yönetin.</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Tabs & Controls */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
-            {/* Tabs */}
-            <div className="flex gap-6 -mb-[1px] overflow-x-auto w-full sm:w-auto no-scrollbar">
-              {['Tümü', 'Aktif', 'Durduruldu', 'Tamamlandı', 'Arşiv'].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => setFilter(tab as any)}
-                  className={`pb-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${filter === tab ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'}`}
-                >
-                  {tab}
-                </button>
-              ))}
-            </div>
-
-            {/* Controls */}
-            <div className="flex items-center gap-3 pb-3">
-              {/* Sorting */}
-              <DropdownMenu.Root>
-                <DropdownMenu.Trigger asChild>
-                  <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors">
-                    Sırala: Yeniden Eskiye
-                    <ChevronDown size={14} className="text-slate-400" />
-                  </button>
-                </DropdownMenu.Trigger>
-                <DropdownMenu.Portal>
-                  <DropdownMenu.Content align="end" className="z-50 min-w-[180px] bg-white rounded-lg shadow-lg border border-slate-200 p-1 animate-in fade-in-80 zoom-in-95">
-                    <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Yeniden Eskiye</DropdownMenu.Item>
-                    <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Eskiden Yeniye</DropdownMenu.Item>
-                    <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">A-Z</DropdownMenu.Item>
-                    <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Z-A</DropdownMenu.Item>
-                  </DropdownMenu.Content>
-                </DropdownMenu.Portal>
-              </DropdownMenu.Root>
-
-              {/* Select Mode Toggle */}
-              {!isSelectMode ? (
-                <button
-                  onClick={() => setIsSelectMode(true)}
-                  className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
-                >
-                  Seç
-                </button>
-              ) : (
-                <div className="flex items-center gap-2">
+            {/* Tabs & Controls */}
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+              {/* Tabs */}
+              <div className="flex gap-6 -mb-[1px] overflow-x-auto w-full sm:w-auto no-scrollbar">
+                {['Tümü', 'Aktif', 'Durduruldu', 'Tamamlandı', 'Arşiv'].map((tab) => (
                   <button
-                    onClick={toggleSelectAll}
-                    className="px-3 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 text-sm font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
+                    key={tab}
+                    onClick={() => setFilter(tab as any)}
+                    className={`pb-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${filter === tab ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300'}`}
                   >
-                    {selectedIds.size === filteredProjects.length ? 'Seçimi Temizle' : 'Tümünü Seç'}
+                    {tab}
                   </button>
+                ))}
+              </div>
+
+              {/* Controls */}
+              <div className="flex items-center gap-3 pb-3">
+                {/* Sorting */}
+                <DropdownMenu.Root>
+                  <DropdownMenu.Trigger asChild>
+                    <button className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors">
+                      Sırala: Yeniden Eskiye
+                      <ChevronDown size={14} className="text-slate-400" />
+                    </button>
+                  </DropdownMenu.Trigger>
+                  <DropdownMenu.Portal>
+                    <DropdownMenu.Content align="end" className="z-50 min-w-[180px] bg-white rounded-lg shadow-lg border border-slate-200 p-1 animate-in fade-in-80 zoom-in-95">
+                      <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Yeniden Eskiye</DropdownMenu.Item>
+                      <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Eskiden Yeniye</DropdownMenu.Item>
+                      <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">A-Z</DropdownMenu.Item>
+                      <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none">Z-A</DropdownMenu.Item>
+                    </DropdownMenu.Content>
+                  </DropdownMenu.Portal>
+                </DropdownMenu.Root>
+
+                {/* Select Mode Toggle */}
+                {!isSelectMode ? (
                   <button
-                    onClick={() => {
-                      setIsSelectMode(false);
-                      setSelectedIds(new Set());
-                    }}
+                    onClick={() => setIsSelectMode(true)}
                     className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                   >
-                    İptal
+                    Seç
                   </button>
-                </div>
-              )}
+                ) : (
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={toggleSelectAll}
+                      className="px-3 py-1.5 rounded-lg border border-indigo-200 bg-indigo-50 text-sm font-medium text-indigo-700 hover:bg-indigo-100 transition-colors"
+                    >
+                      {selectedIds.size === filteredProjects.length ? 'Seçimi Temizle' : 'Tümünü Seç'}
+                    </button>
+                    <button
+                      onClick={() => {
+                        setIsSelectMode(false);
+                        setSelectedIds(new Set());
+                      }}
+                      className="px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 transition-colors"
+                    >
+                      İptal
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -347,8 +349,8 @@ export default function ProjectsPage() {
         )}
 
         {/* Grid Area */}
-        <div className="p-4 lg:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="w-full max-w-[1400px] mx-auto p-4 lg:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
 
             {/* Create New Project Card */}
             {filter === 'Tümü' && (
@@ -375,99 +377,103 @@ export default function ProjectsPage() {
               return (
                 <div
                   key={p.id}
-                  className={`bg-white border rounded-xl shadow-sm flex flex-col transition-all overflow-hidden h-full min-h-[320px] relative cursor-pointer ${isSelected ? 'border-indigo-500 ring-1 ring-indigo-500' : 'border-slate-200 hover:border-indigo-300'
+                  className={`bg-white border rounded-lg flex flex-col transition-all overflow-hidden h-full min-h-[300px] relative cursor-pointer ${isSelected ? 'border-indigo-500 ring-1 ring-indigo-500 bg-indigo-50/10' : 'border-slate-200 hover:border-indigo-300'
                     }`}
                   onClick={() => isSelectMode ? toggleSelection(p.id) : router.push(`/projects/${p.id}`)}
                 >
                   {/* Selection Overlay/Checkbox */}
                   {isSelectMode && (
-                    <div className="absolute top-4 left-4 z-10" onClick={(e) => e.stopPropagation()}>
-                      <Checkbox.Root
-                        checked={isSelected}
-                        onCheckedChange={() => toggleSelection(p.id)}
-                        className={`w-6 h-6 rounded-md border flex items-center justify-center transition-colors ${isSelected
-                          ? 'bg-indigo-600 border-indigo-600 text-white'
-                          : 'bg-white border-slate-300 text-transparent hover:border-indigo-400'
-                          }`}
-                      >
-                        <Checkbox.Indicator>
-                          <Check size={14} strokeWidth={3} />
-                        </Checkbox.Indicator>
-                      </Checkbox.Root>
+                    <div className={`absolute top-3 left-3 z-10 w-5 h-5 rounded border flex items-center justify-center transition-colors ${isSelected ? 'bg-indigo-600 border-indigo-600 text-white' : 'bg-white border-slate-300'
+                      }`}>
+                      {isSelected && <CheckCircle2 size={14} />}
                     </div>
                   )}
 
-                  <div className="p-5 flex flex-col flex-1">
-                    <div className={`flex items-start justify-between gap-3 mb-3 ${isSelectMode ? 'pl-8' : ''}`}>
-                      <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium shrink-0 ${getStatusColor(p.status)}`}>
-                        {p.status}
-                      </span>
+                  <div className="p-4 flex flex-col flex-1">
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <div className={`flex items-start justify-between gap-3 mb-2 ${isSelectMode ? 'ml-7' : ''}`}>
+                        <span className={`px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-medium shrink-0 ${getStatusColor(p.status)}`}>
+                          {p.status}
+                        </span>
+                      </div>
 
-                      {!isSelectMode && (
-                        <DropdownMenu.Root>
-                          <DropdownMenu.Trigger asChild>
-                            <button
-                              className="text-slate-400 hover:text-slate-600 transition-colors p-1 rounded-md hover:bg-slate-100"
-                              onClick={(e) => e.stopPropagation()}
+                      <DropdownMenu.Root>
+                        <DropdownMenu.Trigger asChild>
+                          <button
+                            className="text-slate-400 hover:text-slate-600 transition-colors p-1 -m-1"
+                            onClick={(e) => { e.stopPropagation(); }}
+                          >
+                            <MoreVertical size={16} />
+                          </button>
+                        </DropdownMenu.Trigger>
+                        <DropdownMenu.Portal>
+                          <DropdownMenu.Content
+                            align="end"
+                            className="z-50 min-w-[180px] bg-white rounded-lg shadow-lg border border-slate-200 p-1 animate-in fade-in-80 zoom-in-95"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <DropdownMenu.Item
+                              className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2"
+                              onClick={() => {
+                                if (p.status === 'Aktif') handleSingleStatusChange(p.id, 'Durduruldu');
+                                else handleSingleStatusChange(p.id, 'Aktif');
+                              }}
                             >
-                              <MoreVertical size={20} />
-                            </button>
-                          </DropdownMenu.Trigger>
-                          <DropdownMenu.Portal>
-                            <DropdownMenu.Content align="end" className="z-50 min-w-[200px] bg-white rounded-lg shadow-lg border border-slate-200 p-1 animate-in fade-in-80 zoom-in-95">
-                              <DropdownMenu.Item className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2">
-                                <Edit2 size={14} /> Düzenle
+                              {p.status === 'Aktif' ? <><Pause size={14} className="text-amber-500" /> Durdur</> : <><Play size={14} className="text-emerald-500" /> Aktif Yap</>}
+                            </DropdownMenu.Item>
+                            <DropdownMenu.Item
+                              className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2"
+                              onClick={() => handleDuplicate(p)}
+                            >
+                              <Copy size={14} /> Çoğalt
+                            </DropdownMenu.Item>
+                            {p.status !== 'Tamamlandı' && p.status !== 'Arşiv' && (
+                              <DropdownMenu.Item
+                                className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2"
+                                onClick={() => handleSingleStatusChange(p.id, 'Tamamlandı')}
+                              >
+                                <CheckCircle2 size={14} className="text-indigo-500" /> Tamamlandı İşaretle
                               </DropdownMenu.Item>
-                              <DropdownMenu.Item onClick={() => handleDuplicate(p)} className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2">
-                                <Copy size={14} /> Çoğalt
-                              </DropdownMenu.Item>
-
-                              <DropdownMenu.Separator className="h-px bg-slate-200 my-1" />
-
-                              <DropdownMenu.Label className="px-3 py-1.5 text-xs font-semibold text-slate-500">Durum</DropdownMenu.Label>
-                              <DropdownMenu.Item onClick={() => handleSingleStatusChange(p.id, 'Aktif')} className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2">
-                                <Play size={14} className="text-emerald-500" /> Aktif
-                              </DropdownMenu.Item>
-                              <DropdownMenu.Item onClick={() => handleSingleStatusChange(p.id, 'Durduruldu')} className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2">
-                                <Pause size={14} className="text-amber-500" /> Durduruldu
-                              </DropdownMenu.Item>
-                              <DropdownMenu.Item onClick={() => handleSingleStatusChange(p.id, 'Tamamlandı')} className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2">
-                                <CheckCircle2 size={14} className="text-indigo-500" /> Tamamlandı
-                              </DropdownMenu.Item>
-
-                              <DropdownMenu.Separator className="h-px bg-slate-200 my-1" />
-
-                              <DropdownMenu.Item onClick={() => handleArchive(p.id)} className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2">
+                            )}
+                            <DropdownMenu.Separator className="h-px bg-slate-100 my-1" />
+                            {p.status !== 'Arşiv' && (
+                              <DropdownMenu.Item
+                                className="px-3 py-2 text-sm text-slate-700 hover:bg-slate-100 rounded-md cursor-pointer outline-none flex items-center gap-2"
+                                onClick={() => handleArchive(p.id)}
+                              >
                                 <Archive size={14} /> Arşivle
                               </DropdownMenu.Item>
-                              <DropdownMenu.Item onClick={() => handleSingleDelete(p.id)} className="px-3 py-2 text-sm text-rose-600 hover:bg-rose-50 rounded-md cursor-pointer outline-none flex items-center gap-2">
-                                <Trash2 size={14} /> Sil
-                              </DropdownMenu.Item>
-                            </DropdownMenu.Content>
-                          </DropdownMenu.Portal>
-                        </DropdownMenu.Root>
-                      )}
+                            )}
+                            <DropdownMenu.Item
+                              className="px-3 py-2 text-sm text-rose-600 hover:bg-rose-50 rounded-md cursor-pointer outline-none flex items-center gap-2"
+                              onClick={() => handleSingleDelete(p.id)}
+                            >
+                              <Trash2 size={14} /> Sil
+                            </DropdownMenu.Item>
+                          </DropdownMenu.Content>
+                        </DropdownMenu.Portal>
+                      </DropdownMenu.Root>
                     </div>
 
-                    <h3 className="font-bold text-slate-900 text-base mb-2 line-clamp-2 transition-colors">{p.title}</h3>
-                    <p className="text-sm text-slate-500 mb-4 line-clamp-3 flex-1">
+                    <h3 className="font-bold text-slate-900 text-[13px] sm:text-[14px] mb-1.5 line-clamp-2 md:line-clamp-1 xl:line-clamp-2 group-hover:text-indigo-600 transition-colors pr-4">{p.title}</h3>
+                    <p className="text-[11.5px] sm:text-[12px] text-slate-500 mb-3 line-clamp-3 md:line-clamp-2 xl:line-clamp-3 leading-relaxed flex-1">
                       {p.description}
                     </p>
 
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-slate-500 font-medium mb-6">
+                    <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] text-slate-500 font-medium mb-4">
                       <div className="flex items-center gap-1">
-                        <Users size={12} />
+                        <Users size={10} />
                         <span>{p.candidates} aday</span>
                       </div>
                       <div className="w-1 h-1 rounded-full bg-slate-300" />
                       <div className="flex items-center gap-1">
-                        <Layers size={12} />
+                        <Layers size={10} />
                         <span>{p.stages} aşama</span>
                       </div>
                       <div className="w-1 h-1 rounded-full bg-slate-300" />
                       <div className="flex items-center gap-1">
-                        <Calendar size={12} />
-                        <span>{p.date1}</span>
+                        <Calendar size={10} />
+                        <span className="line-clamp-1">{p.date1}</span>
                       </div>
                     </div>
 
