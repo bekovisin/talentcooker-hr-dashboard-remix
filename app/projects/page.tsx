@@ -362,8 +362,8 @@ export default function ProjectsPage() {
             </div>
           </header>
 
-          {/* Tabs Menu */}
-          <div className="pr-4 pl-16 lg:px-8 pt-3 flex items-end justify-between overflow-x-auto no-scrollbar">
+          {/* Tabs Menu & Controls */}
+          <div className="pr-4 pl-16 lg:px-8 pt-3 flex items-end justify-between overflow-x-auto no-scrollbar pb-3">
             <div className="flex gap-6 -mb-[1px]">
               {['Tümü', 'Aktif', 'Durduruldu', 'Tamamlandı', 'Arşiv'].map((tab) => (
                 <button
@@ -375,14 +375,9 @@ export default function ProjectsPage() {
                 </button>
               ))}
             </div>
-          </div>
-        </div>
 
-        {/* Scrollable Main Area */}
-        <div className="flex-1 overflow-y-auto w-full relative">
-          <div className="w-full max-w-[1400px] mx-auto p-4 lg:px-8">
-            {/* Controls (Sorting & Selection) just above Grid */}
-            <div className="flex justify-end items-center gap-3 mb-4 lg:mb-6">
+            {/* Controls */}
+            <div className="flex items-center gap-3">
               {/* Sorting */}
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger asChild>
@@ -429,6 +424,12 @@ export default function ProjectsPage() {
                 </div>
               )}
             </div>
+          </div>
+        </div>
+
+        {/* Scrollable Main Area */}
+        <div className="flex-1 overflow-y-auto w-full relative">
+          <div className="w-full max-w-[1400px] mx-auto p-4 lg:px-8">
 
             {/* Bulk Actions Bar */}
             {isSelectMode && selectedIds.size > 0 && (
