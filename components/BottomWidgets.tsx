@@ -8,8 +8,8 @@ function Pagination({ page, totalPages, onPageChange, rowsPerPage, onRowsChange,
     <div className="flex items-center justify-between px-4 py-3 border-t border-slate-100 bg-white shrink-0">
       <div className="flex items-center gap-2">
         <span className="text-xs text-slate-500 font-medium">Göster:</span>
-        <select 
-          value={rowsPerPage} 
+        <select
+          value={rowsPerPage}
           onChange={(e) => onRowsChange(Number(e.target.value))}
           className="text-xs border border-slate-200 rounded px-2 py-1 bg-slate-50 text-slate-700 outline-none focus:border-indigo-500 font-medium cursor-pointer"
         >
@@ -17,8 +17,8 @@ function Pagination({ page, totalPages, onPageChange, rowsPerPage, onRowsChange,
         </select>
       </div>
       <div className="flex items-center gap-3">
-        <button 
-          disabled={page <= 1} 
+        <button
+          disabled={page <= 1}
           onClick={() => onPageChange(page - 1)}
           className="p-1 rounded border border-slate-200 text-slate-500 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
@@ -27,8 +27,8 @@ function Pagination({ page, totalPages, onPageChange, rowsPerPage, onRowsChange,
         <span className="text-xs text-slate-600 font-medium min-w-[70px] text-center">
           Sayfa {page} / {Math.max(1, totalPages)}
         </span>
-        <button 
-          disabled={page >= totalPages} 
+        <button
+          disabled={page >= totalPages}
           onClick={() => onPageChange(page + 1)}
           className="p-1 rounded border border-slate-200 text-slate-500 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
@@ -63,8 +63,8 @@ function MatchScoreBadge({ score }: { score: number }) {
 function HighIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="7" cy="7" r="7" fill="#10B981"/>
-      <path d="M4 7L6 9L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <circle cx="7" cy="7" r="7" fill="#10B981" />
+      <path d="M4 7L6 9L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -72,8 +72,8 @@ function HighIcon() {
 function MediumIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="7" cy="7" r="7" fill="#F59E0B"/>
-      <path d="M4 7H10" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="7" cy="7" r="7" fill="#F59E0B" />
+      <path d="M4 7H10" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -81,8 +81,8 @@ function MediumIcon() {
 function LowIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="7" cy="7" r="7" fill="#EF4444"/>
-      <path d="M4.5 4.5L9.5 9.5M9.5 4.5L4.5 9.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+      <circle cx="7" cy="7" r="7" fill="#EF4444" />
+      <path d="M4.5 4.5L9.5 9.5M9.5 4.5L4.5 9.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -102,7 +102,7 @@ function SkillBadge({ score, mode }: { score: number, mode: 'level' | 'score' })
       colorClass = "text-amber-700 bg-amber-50";
       iconColor = "text-amber-500";
     }
-    
+
     return (
       <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold transition-transform hover:scale-110 cursor-default ${colorClass}`}>
         <svg className={`w-3.5 h-3.5 ${iconColor}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -167,7 +167,7 @@ function SortIcon({ columnKey, sortConfig }: { columnKey: string, sortConfig: { 
   if (sortConfig?.key !== columnKey) {
     return <ArrowUpDown size={12} className="text-slate-300 ml-1 inline-block" />;
   }
-  return sortConfig.direction === 'asc' 
+  return sortConfig.direction === 'asc'
     ? <ArrowUp size={12} className="text-indigo-500 ml-1 inline-block" />
     : <ArrowDown size={12} className="text-indigo-500 ml-1 inline-block" />;
 }
@@ -178,7 +178,7 @@ export function BottomWidgets() {
 
   const [poolPage, setPoolPage] = useState(1);
   const [poolRowsPerPage, setPoolRowsPerPage] = useState(10);
-  
+
   const [trackingPage, setTrackingPage] = useState(1);
   const [trackingRowsPerPage, setTrackingRowsPerPage] = useState(5);
 
@@ -259,26 +259,26 @@ export function BottomWidgets() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-      <div className="col-span-1 lg:col-span-2 bg-white border border-slate-200 rounded-lg shadow-sm flex flex-col overflow-hidden h-[600px]">
+      <div className="col-span-1 lg:col-span-2 bg-white border border-slate-200 rounded-lg flex flex-col overflow-hidden h-[600px]">
         <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-slate-50/50 shrink-0">
           <div className="flex items-center gap-3">
             <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Aday Havuzu Analizi</h3>
-            <button className="flex items-center gap-1.5 px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm">
+            <button className="flex items-center gap-1.5 px-2.5 py-1 bg-white border border-slate-200 rounded-md text-xs font-bold text-slate-700 hover:bg-slate-50 transition-colors">
               Mono Sigorta Projesi
               <ChevronDown size={14} className="text-slate-400" />
             </button>
           </div>
           <div className="flex items-center gap-2">
             <div className="flex bg-slate-100 p-0.5 rounded-lg border border-slate-200">
-              <button 
+              <button
                 onClick={() => setDisplayMode('level')}
-                className={`px-3 py-1 text-xs font-bold rounded-md transition-colors ${displayMode === 'level' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`px-3 py-1 text-xs font-bold rounded-md transition-colors ${displayMode === 'level' ? 'bg-white text-slate-800 border border-slate-200' : 'text-slate-500 hover:text-slate-700'}`}
               >
                 Düzey
               </button>
-              <button 
+              <button
                 onClick={() => setDisplayMode('score')}
-                className={`px-3 py-1 text-xs font-bold rounded-md transition-colors ${displayMode === 'score' ? 'bg-white text-slate-800 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`px-3 py-1 text-xs font-bold rounded-md transition-colors ${displayMode === 'score' ? 'bg-white text-slate-800 border border-slate-200' : 'text-slate-500 hover:text-slate-700'}`}
               >
                 Skor
               </button>
@@ -289,7 +289,7 @@ export function BottomWidgets() {
             </button>
           </div>
         </div>
-        
+
         <div className="flex-1 overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[1000px]">
             <thead>
@@ -369,17 +369,17 @@ export function BottomWidgets() {
             </tbody>
           </table>
         </div>
-        <Pagination 
-          page={poolPage} 
-          totalPages={Math.ceil(sortedCandidates.length / poolRowsPerPage)} 
-          onPageChange={setPoolPage} 
-          rowsPerPage={poolRowsPerPage} 
-          onRowsChange={(val: number) => { setPoolRowsPerPage(val); setPoolPage(1); }} 
-          rowsOptions={[10, 20, 50]} 
+        <Pagination
+          page={poolPage}
+          totalPages={Math.ceil(sortedCandidates.length / poolRowsPerPage)}
+          onPageChange={setPoolPage}
+          rowsPerPage={poolRowsPerPage}
+          onRowsChange={(val: number) => { setPoolRowsPerPage(val); setPoolPage(1); }}
+          rowsOptions={[10, 20, 50]}
         />
       </div>
-      
-      <div className="col-span-1 bg-white border border-slate-200 rounded-lg shadow-sm flex flex-col h-[600px]">
+
+      <div className="col-span-1 bg-white border border-slate-200 rounded-lg flex flex-col h-[600px]">
         <div className="p-5 border-b border-slate-100 flex justify-between items-center shrink-0 bg-slate-50/50 rounded-t-lg">
           <div className="flex items-center gap-2">
             <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Anlık Aday Takibi</h3>
@@ -395,13 +395,13 @@ export function BottomWidgets() {
             <TrackingItem key={i} name={item.name} time={item.time} step={item.step} status={item.status} />
           ))}
         </div>
-        <Pagination 
-          page={trackingPage} 
-          totalPages={Math.ceil(initialTrackingData.length / trackingRowsPerPage)} 
-          onPageChange={setTrackingPage} 
-          rowsPerPage={trackingRowsPerPage} 
-          onRowsChange={(val: number) => { setTrackingRowsPerPage(val); setTrackingPage(1); }} 
-          rowsOptions={[5, 10, 20]} 
+        <Pagination
+          page={trackingPage}
+          totalPages={Math.ceil(initialTrackingData.length / trackingRowsPerPage)}
+          onPageChange={setTrackingPage}
+          rowsPerPage={trackingRowsPerPage}
+          onRowsChange={(val: number) => { setTrackingRowsPerPage(val); setTrackingPage(1); }}
+          rowsOptions={[5, 10, 20]}
         />
       </div>
     </div>
@@ -432,7 +432,7 @@ function TrackingItem({ name, time, step, status }: { name: string, time: string
   const progressPercent = (step / 5) * 100;
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       className="p-4 hover:bg-slate-50 rounded-lg transition-colors border-b border-slate-50 last:border-0 group cursor-pointer"
@@ -441,40 +441,39 @@ function TrackingItem({ name, time, step, status }: { name: string, time: string
         <span className="font-bold text-slate-900 text-xs">{name}</span>
         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{time}</span>
       </div>
-      
+
       <div className="mb-3">
         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Değerlendirme Aşaması</span>
       </div>
-      
+
       <div className="relative flex items-center justify-between w-full px-2">
         {/* Background Track */}
         <div className="absolute left-2 right-2 h-[2px] bg-slate-100 top-1/2 -translate-y-1/2 z-0" />
-        
+
         {/* Animated Fill Track */}
-        <motion.div 
+        <motion.div
           initial={{ width: 0 }}
           animate={{ width: `calc(${progressPercent}% - 16px)` }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className={`absolute left-2 h-[2px] ${activeColor} top-1/2 -translate-y-1/2 z-0`} 
+          className={`absolute left-2 h-[2px] ${activeColor} top-1/2 -translate-y-1/2 z-0`}
         />
 
         {[0, 1, 2, 3, 4, 5].map((i) => {
           const isActive = i === step;
           const isCompleted = i < step;
-          
+
           return (
             <div key={i} className="relative z-10 bg-white px-1">
-              <motion.div 
+              <motion.div
                 initial={isActive ? { scale: 0.8 } : false}
                 animate={isActive ? { scale: [0.8, 1.2, 1] } : false}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className={`w-4 h-4 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-125 cursor-default ${
-                  isCompleted 
-                    ? `${activeColor} shadow-sm` 
-                    : isActive 
-                      ? `${activeColor} shadow-md ring-4 ${activeRing}` 
+                className={`w-4 h-4 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-125 cursor-default ${isCompleted
+                    ? `${activeColor}`
+                    : isActive
+                      ? `${activeColor} ring-4 ${activeRing}`
                       : 'bg-slate-100 border border-slate-200'
-                }`}
+                  }`}
               >
                 {isCompleted && (
                   <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -489,7 +488,7 @@ function TrackingItem({ name, time, step, status }: { name: string, time: string
           );
         })}
       </div>
-      
+
       <p className="text-[10px] text-slate-600 font-bold mt-4 tracking-tight uppercase group-hover:text-indigo-600 transition-colors">{status}</p>
     </motion.div>
   );
