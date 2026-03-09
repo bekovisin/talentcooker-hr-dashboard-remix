@@ -15,11 +15,11 @@ export function ProjectDashboardTab({ projectId, onTabChange }: { projectId: str
       <ProjectStats />
 
       {/* Middle Row: Leaders, Stage Progress, AI Summary */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
         <div className="lg:col-span-1">
           <ProjectLeaders />
         </div>
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-2">
           <ProjectStageProgress />
         </div>
         <div className="lg:col-span-1">

@@ -73,7 +73,7 @@ export function ProjectTracking() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 min-[1200px]:grid-cols-4 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {projects.map((p, i) => {
           let progressColor = "bg-emerald-500";
           if (p.progress < 40) progressColor = "bg-rose-500";

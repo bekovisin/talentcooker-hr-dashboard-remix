@@ -124,7 +124,7 @@ export function ProjectLeaders() {
   };
 
   const themeClasses = getThemeClasses(currentLeader.colorTheme);
-  const radius = 56;
+  const radius = 64;
   const circumference = 2 * Math.PI * radius;
 
   return (
@@ -149,7 +149,7 @@ export function ProjectLeaders() {
         </div>
       </div>
 
-      <div className="flex-1 relative flex items-center justify-center min-h-[300px]">
+      <div className="flex-1 relative flex items-center justify-center min-h-[280px]">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={currentIndex}
@@ -166,14 +166,14 @@ export function ProjectLeaders() {
               initial={{ y: -10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2, type: "spring" }}
-              className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border mb-4 ${themeClasses.badge}`}
+              className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border mb-2 ${themeClasses.badge}`}
             >
               <Trophy size={14} className="text-yellow-600" />
               1. SIRADA
             </motion.div>
 
             {/* Animated Score Circle */}
-            <div className="relative w-36 h-36 flex items-center justify-center shrink-0 mb-2">
+            <div className="relative w-40 h-40 flex items-center justify-center shrink-0 mb-1">
               <svg className="w-full h-full transform -rotate-90">
                 <circle
                   cx="50%" cy="50%" r={radius}

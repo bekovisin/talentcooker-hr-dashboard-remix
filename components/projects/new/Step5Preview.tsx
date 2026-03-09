@@ -49,7 +49,7 @@ export default function Step5Preview({
         <div className="lg:col-span-2 space-y-6">
 
           {/* Header Card */}
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden p-5 sm:p-6">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-[0_1px_3px_rgb(0_0_0/0.02)] overflow-hidden p-5 sm:p-6">
             <div className="flex items-start justify-between mb-5">
               <div>
                 <h1 className="text-lg font-bold text-slate-900 mb-1.5">{projectName}</h1>
@@ -83,7 +83,7 @@ export default function Step5Preview({
           </div>
 
           {/* Inventories Section */}
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-[0_1px_3px_rgb(0_0_0/0.02)] overflow-hidden">
             <div className="p-4 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
               <h3 className="text-[13px] font-bold text-slate-900 flex items-center gap-2">
                 <List size={14} className="text-indigo-500" />
@@ -129,7 +129,7 @@ export default function Step5Preview({
           </div>
 
           {/* Tests Section */}
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-[0_1px_3px_rgb(0_0_0/0.02)] overflow-hidden">
             <div className="p-4 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
               <h3 className="text-[13px] font-bold text-slate-900 flex items-center gap-2">
                 <CheckCircle2 size={14} className="text-blue-500" />
@@ -175,7 +175,7 @@ export default function Step5Preview({
 
         {/* Right Column: Settings */}
         <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden sticky top-6">
+          <div className="bg-white rounded-xl border border-slate-200 shadow-[0_1px_3px_rgb(0_0_0/0.02)] overflow-hidden sticky top-6">
             <div className="p-4 border-b border-slate-100 bg-slate-50/50">
               <h3 className="text-[13px] font-bold text-slate-900 flex items-center gap-2">
                 <Settings2 size={14} className="text-slate-500" />

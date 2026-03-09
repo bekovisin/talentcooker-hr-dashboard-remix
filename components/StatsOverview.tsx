@@ -31,7 +31,7 @@ const CustomTooltip = ({ active, payload }: any) => {
 
 export function StatsOverview() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 min-[1200px]:grid-cols-5 gap-4 lg:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
       {/* 1. Kredi Bakiye */}
       <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg p-5 cursor-pointer hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-10 -mt-10 blur-2xl pointer-events-none" />
@@ -112,7 +112,7 @@ export function StatsOverview() {
       </div>
 
       {/* 4. Ort. İşe Alım Süresi — hidden on mobile */}
-      <div className="hidden min-[1200px]:flex bg-white border border-slate-200 rounded-lg p-5 flex-col gap-4 group">
+      <div className="hidden lg:flex bg-white border border-slate-200 rounded-lg p-5 flex-col gap-4 group">
         <div className="flex justify-between items-start">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ort. İşe Alım Süresi</span>
           <div className="w-24 h-12">
@@ -142,7 +142,7 @@ export function StatsOverview() {
       </div>
 
       {/* 5. Tamamlanan Envanterler — hidden on mobile */}
-      <div className="hidden min-[1200px]:flex bg-white border border-slate-200 rounded-lg p-5 flex-col gap-4 group">
+      <div className="hidden lg:flex bg-white border border-slate-200 rounded-lg p-5 flex-col gap-4 group">
         <div className="flex justify-between items-start">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Tamamlanan Envanterler</span>
           <div className="w-24 h-12">

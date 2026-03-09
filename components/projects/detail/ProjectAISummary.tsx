@@ -26,14 +26,14 @@ export function ProjectAISummary({ onReview }: { onReview: () => void }) {
             <div className="bg-indigo-50/50 rounded-lg p-2.5 border border-indigo-100/50">
               <div className="flex items-center gap-1.5 text-indigo-600 mb-0.5">
                 <TrendingUp size={12} />
-                <span className="text-[9px] font-bold uppercase tracking-wider">Genel Uyum</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider">Genel Uyum</span>
               </div>
               <div className="text-xl font-black text-slate-900">%84</div>
             </div>
             <div className="bg-emerald-50/50 rounded-lg p-2.5 border border-emerald-100/50">
               <div className="flex items-center gap-1.5 text-emerald-600 mb-0.5">
                 <CheckCircle2 size={12} />
-                <span className="text-[9px] font-bold uppercase tracking-wider">Geçme Oranı</span>
+                <span className="text-[11px] font-bold uppercase tracking-wider">Geçme Oranı</span>
               </div>
               <div className="text-xl font-black text-slate-900">%62</div>
             </div>
@@ -45,7 +45,7 @@ export function ProjectAISummary({ onReview }: { onReview: () => void }) {
               <div className="mt-0.5 w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
                 <CheckCircle2 size={12} />
               </div>
-              <p className="text-[11px] text-slate-600 leading-relaxed">
+              <p className="text-[13px] text-slate-600 leading-relaxed">
                 <strong className="text-slate-900">Ayşe Yılmaz</strong> ve <strong className="text-slate-900">Caner Demir</strong> teknik testlerde ortalamanın %30 üzerinde performans gösterdi.
               </p>
             </div>
@@ -53,7 +53,7 @@ export function ProjectAISummary({ onReview }: { onReview: () => void }) {
               <div className="mt-0.5 w-5 h-5 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
                 <AlertCircle size={12} />
               </div>
-              <p className="text-[11px] text-slate-600 leading-relaxed">
+              <p className="text-[13px] text-slate-600 leading-relaxed">
                 Adayların genelinde <strong className="text-slate-900">İletişim Becerileri</strong> skoru beklenen hedefin altında kaldı.
               </p>
             </div>

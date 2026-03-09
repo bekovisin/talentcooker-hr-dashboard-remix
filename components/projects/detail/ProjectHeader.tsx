@@ -11,7 +11,7 @@ export function ProjectHeader({ projectId }: { projectId: string }) {
   const [lang, setLang] = useState('TR');
 
   return (
-    <div className="bg-white border-b border-slate-200 shrink-0">
+    <div className="bg-white shrink-0">
       <header className="h-16 lg:h-20 pr-4 pl-16 lg:px-8 flex items-center justify-between border-b border-slate-200">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
