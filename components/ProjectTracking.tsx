@@ -73,14 +73,14 @@ export function ProjectTracking() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 min-[1200px]:grid-cols-4 gap-4 lg:gap-6">
         {projects.map((p, i) => {
           let progressColor = "bg-emerald-500";
           if (p.progress < 40) progressColor = "bg-rose-500";
           else if (p.progress < 70) progressColor = "bg-amber-400";
 
           return (
-            <div key={i} className="bg-white border text-sm border-slate-200 rounded-lg hover:border-indigo-300 transition-colors overflow-hidden h-full group">
+            <div key={i} className={`bg-white border text-sm border-slate-200 rounded-lg hover:border-indigo-300 transition-colors overflow-hidden h-full group ${i >= 2 ? 'hidden md:block' : ''}`}>
               <div
                 className="p-4 flex flex-col flex-1 cursor-pointer"
                 onClick={() => setSelectedProject(p)}
@@ -101,19 +101,19 @@ export function ProjectTracking() {
                   {p.description}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] text-slate-500 font-medium mb-4">
+                <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[12px] text-slate-500 font-medium mb-4">
                   <div className="flex items-center gap-1">
-                    <Users size={10} />
+                    <Users size={12} />
                     <span>{p.candidates} aday</span>
                   </div>
                   <div className="w-1 h-1 rounded-full bg-slate-300" />
                   <div className="flex items-center gap-1">
-                    <Layers size={10} />
+                    <Layers size={12} />
                     <span>{p.stages} aşama</span>
                   </div>
                   <div className="w-1 h-1 rounded-full bg-slate-300" />
                   <div className="flex items-center gap-1">
-                    <Calendar size={10} />
+                    <Calendar size={12} />
                     <span>{p.date1}</span>
                   </div>
                 </div>

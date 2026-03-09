@@ -1,5 +1,5 @@
 'use client';
-import { TrendingUp, Minus, ChevronRight, Coins, Timer } from 'lucide-react';
+import { TrendingUp, Minus, ChevronRight, Coins } from 'lucide-react';
 import { AreaChart, Area, ResponsiveContainer, Tooltip } from 'recharts';
 
 const data1 = [
@@ -31,7 +31,33 @@ const CustomTooltip = ({ active, payload }: any) => {
 
 export function StatsOverview() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-3 min-[1200px]:grid-cols-5 gap-4 lg:gap-6">
+      {/* 1. Kredi Bakiye */}
+      <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg p-5 cursor-pointer hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-10 -mt-10 blur-2xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-8 -mb-8 blur-xl pointer-events-none" />
+
+        <div className="flex justify-between items-center relative z-10">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
+              <Coins size={16} />
+            </div>
+            <span className="text-[11px] font-bold text-emerald-50 tracking-wider">KREDİ BAKİYE</span>
+          </div>
+          <ChevronRight size={16} className="text-emerald-100" />
+        </div>
+        <div className="relative z-10 mt-4">
+          <div className="flex items-baseline gap-1.5 mb-1">
+            <span className="text-3xl font-bold text-white">5.830</span>
+            <span className="text-sm font-medium text-emerald-100">kredi</span>
+          </div>
+          <div className="text-xs font-medium text-emerald-100/80">
+            ≈ 29.150 ₺
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Aktif Projeler */}
       <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col gap-4 group">
         <div className="flex justify-between items-start">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Aktif Projeler</span>
@@ -58,6 +84,7 @@ export function StatsOverview() {
         </div>
       </div>
 
+      {/* 3. Devam Eden Oturumlar */}
       <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col gap-4 group">
         <div className="flex justify-between items-start">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Devam Eden Oturumlar</span>
@@ -84,7 +111,38 @@ export function StatsOverview() {
         </div>
       </div>
 
-      <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col gap-4 group">
+      {/* 4. Ort. İşe Alım Süresi — hidden on mobile */}
+      <div className="hidden min-[1200px]:flex bg-white border border-slate-200 rounded-lg p-5 flex-col gap-4 group">
+        <div className="flex justify-between items-start">
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ort. İşe Alım Süresi</span>
+          <div className="w-24 h-12">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={data4}>
+                <defs>
+                  <linearGradient id="color4" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <Tooltip content={<CustomTooltip />} />
+                <Area type="monotone" dataKey="value" stroke="#3b82f6" strokeWidth={2} fillOpacity={1} fill="url(#color4)" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+        <div className="flex items-end justify-between">
+          <div className="flex items-baseline gap-1">
+            <span className="text-3xl font-bold text-slate-900">14</span>
+            <span className="text-sm font-medium text-slate-500">gün</span>
+          </div>
+          <span className="text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-1 rounded flex items-center gap-1">
+            -3 gün <TrendingUp size={14} className="transform rotate-180" />
+          </span>
+        </div>
+      </div>
+
+      {/* 5. Tamamlanan Envanterler — hidden on mobile */}
+      <div className="hidden min-[1200px]:flex bg-white border border-slate-200 rounded-lg p-5 flex-col gap-4 group">
         <div className="flex justify-between items-start">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Tamamlanan Envanterler</span>
           <div className="w-24 h-12">
@@ -106,59 +164,6 @@ export function StatsOverview() {
           <span className="text-3xl font-bold text-slate-900">140</span>
           <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded flex items-center gap-1">
             Stable <Minus size={14} />
-          </span>
-        </div>
-      </div>
-
-      <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg p-5 cursor-pointer hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-10 -mt-10 blur-2xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-8 -mb-8 blur-xl pointer-events-none" />
-
-        <div className="flex justify-between items-center relative z-10">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
-              <Coins size={16} />
-            </div>
-            <span className="text-[11px] font-bold text-emerald-50 tracking-wider">KREDİ BAKİYE</span>
-          </div>
-          <ChevronRight size={16} className="text-emerald-100" />
-        </div>
-        <div className="relative z-10 mt-4">
-          <div className="flex items-baseline gap-1.5 mb-1">
-            <span className="text-3xl font-bold text-white">5.830</span>
-            <span className="text-sm font-medium text-emerald-100">kredi</span>
-          </div>
-          <div className="text-xs font-medium text-emerald-100/80">
-            ≈ 29.150 ₺
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col gap-4 group">
-        <div className="flex justify-between items-start">
-          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ort. İşe Alım Süresi</span>
-          <div className="w-24 h-12">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={data4}>
-                <defs>
-                  <linearGradient id="color4" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <Tooltip content={<CustomTooltip />} />
-                <Area type="monotone" dataKey="value" stroke="#8b5cf6" strokeWidth={2} fillOpacity={1} fill="url(#color4)" />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-        <div className="flex items-end justify-between">
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-bold text-slate-900">14</span>
-            <span className="text-sm font-medium text-slate-500">gün</span>
-          </div>
-          <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded flex items-center gap-1">
-            -3 gün <TrendingUp size={14} className="transform rotate-180" />
           </span>
         </div>
       </div>
