@@ -86,12 +86,12 @@ export function ProjectStats() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
       {stats.map((stat, index) => (
-        <div key={index} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-[0_1px_3px_rgb(0_0_0/0.02)] flex flex-col justify-between group">
-          <div className="flex justify-between items-start mb-4">
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${stat.bgColor} ${stat.color}`}>
-              <stat.icon size={20} />
+        <div key={index} className="bg-white rounded-xl p-4 border border-slate-200 shadow-[0_1px_3px_rgb(0_0_0/0.02)] flex flex-col justify-between group">
+          <div className="flex justify-between items-start mb-3">
+            <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${stat.bgColor} ${stat.color}`}>
+              <stat.icon size={16} />
             </div>
-            <div className="w-24 h-12">
+            <div className="w-20 h-10">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={stat.chartData}>
                   <defs>
@@ -108,14 +108,14 @@ export function ProjectStats() {
           </div>
           <div className="flex items-end justify-between">
             <div>
-              <h3 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">{stat.title}</h3>
-              <p className="text-3xl font-black text-slate-900">{stat.value}</p>
+              <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-0.5">{stat.title}</h3>
+              <p className="text-2xl font-black text-slate-900">{stat.value}</p>
             </div>
-            <span className={`text-xs font-semibold px-2 py-1 rounded flex items-center gap-1 mb-1 ${stat.badgeColor}`}>
+            <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded flex items-center gap-1 mb-1 ${stat.badgeColor}`}>
               {stat.change}
-              {stat.trend === 'up' && <TrendingUp size={14} />}
-              {stat.trend === 'down' && <TrendingUp size={14} className="transform rotate-180" />}
-              {stat.trend === 'neutral' && <Minus size={14} />}
+              {stat.trend === 'up' && <TrendingUp size={12} />}
+              {stat.trend === 'down' && <TrendingUp size={12} className="transform rotate-180" />}
+              {stat.trend === 'neutral' && <Minus size={12} />}
             </span>
           </div>
         </div>

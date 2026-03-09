@@ -24,7 +24,7 @@ export function ProjectDetailContent({ projectId }: { projectId: string }) {
       <ProjectHeader projectId={projectId} />
 
       {/* Tabs Menu & Controls */}
-      <div className="border-b border-slate-200 bg-white shrink-0 px-4 pl-16 lg:px-8 pt-3 flex items-end justify-between overflow-x-auto no-scrollbar">
+      <div className="border-b border-slate-200 bg-white shrink-0 px-4 pl-16 lg:px-8 pt-[14px] flex items-end justify-between">
         <div className="flex gap-4 sm:gap-6 -mb-[1px]">
           {tabs.map((tab) => (
             <button

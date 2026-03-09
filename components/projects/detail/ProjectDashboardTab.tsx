@@ -10,12 +10,12 @@ import { ProjectAISummary } from './ProjectAISummary';
 
 export function ProjectDashboardTab({ projectId, onTabChange }: { projectId: string, onTabChange: (tab: string) => void }) {
   return (
-    <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
+    <div className="flex flex-col gap-4 lg:gap-6">
       {/* Top Stats */}
       <ProjectStats />
 
       {/* Middle Row: Leaders, Stage Progress, AI Summary */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
         <div className="lg:col-span-1">
           <ProjectLeaders />
         </div>
@@ -28,7 +28,7 @@ export function ProjectDashboardTab({ projectId, onTabChange }: { projectId: str
       </div>
 
       {/* Bottom Row: Candidate Results & Live Tracking */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
         <div className="lg:col-span-2">
           <ProjectCandidateResults />
         </div>

@@ -128,11 +128,11 @@ export function ProjectLeaders() {
   const circumference = 2 * Math.PI * radius;
 
   return (
-    <div className={`relative rounded-2xl border shadow-[0_1px_3px_rgb(0_0_0/0.02)] p-5 sm:p-6 h-full flex flex-col overflow-hidden transition-colors duration-700 font-[family-name:var(--font-manrope)] ${themeClasses.bg}`}>
+    <div className={`relative rounded-xl border shadow-[0_1px_3px_rgb(0_0_0/0.02)] p-4 h-full flex flex-col overflow-hidden transition-colors duration-700 font-[family-name:var(--font-manrope)] ${themeClasses.bg}`}>
 
       {/* Header */}
       <div className="flex items-center justify-between mb-4 relative z-10">
-        <h2 className={`text-sm font-bold uppercase tracking-wider ${themeClasses.text}`}>Öne Çıkan Adaylar</h2>
+        <h2 className={`text-[11px] font-bold uppercase tracking-wider ${themeClasses.text}`}>Öne Çıkan Adaylar</h2>
         <div className="flex items-center gap-1">
           <button
             onClick={prev}
@@ -149,7 +149,7 @@ export function ProjectLeaders() {
         </div>
       </div>
 
-      <div className="flex-1 relative flex items-center justify-center min-h-[360px]">
+      <div className="flex-1 relative flex items-center justify-center min-h-[300px]">
         <AnimatePresence initial={false} custom={direction} mode="wait">
           <motion.div
             key={currentIndex}
@@ -173,7 +173,7 @@ export function ProjectLeaders() {
             </motion.div>
 
             {/* Animated Score Circle */}
-            <div className="relative w-48 h-48 flex items-center justify-center shrink-0 mb-3">
+            <div className="relative w-36 h-36 flex items-center justify-center shrink-0 mb-2">
               <svg className="w-full h-full transform -rotate-90">
                 <circle
                   cx="50%" cy="50%" r={radius}
@@ -200,7 +200,7 @@ export function ProjectLeaders() {
                   initial={{ scale: 0.5, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.4 }}
-                  className={`text-6xl font-black leading-none tracking-tighter ${themeClasses.text}`}
+                  className={`text-5xl font-black leading-none tracking-tighter ${themeClasses.text}`}
                 >
                   {currentLeader.score}
                 </motion.span>
@@ -208,7 +208,7 @@ export function ProjectLeaders() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
-                  className={`text-sm font-medium opacity-80 mt-[-8px] ${themeClasses.textMuted}`}
+                  className={`text-xs font-medium opacity-80 mt-[-6px] ${themeClasses.textMuted}`}
                 >
                   {currentLeader.traitLabel}
                 </motion.span>
@@ -217,7 +217,7 @@ export function ProjectLeaders() {
 
             {/* Candidate Info */}
             <div className="mb-4 space-y-1">
-              <h3 className={`text-3xl font-bold tracking-tight ${themeClasses.text}`}>
+              <h3 className={`text-xl font-bold tracking-tight ${themeClasses.text}`}>
                 {currentLeader.name}
               </h3>
               <p className={`font-medium opacity-80 ${themeClasses.textMuted}`}>
@@ -228,7 +228,7 @@ export function ProjectLeaders() {
             {/* Action Button */}
             <button
               onClick={() => router.push('/tasarim')}
-              className={`flex items-center justify-center gap-1.5 w-full max-w-[240px] py-3 rounded-xl shadow-sm text-sm font-bold transition-all hover:-translate-y-0.5 ${themeClasses.btn}`}
+              className={`flex items-center justify-center gap-1.5 w-full max-w-[200px] py-2 rounded-xl shadow-sm text-[13px] font-bold transition-all hover:-translate-y-0.5 ${themeClasses.btn}`}
             >
               İncele <ArrowRight size={16} />
             </button>

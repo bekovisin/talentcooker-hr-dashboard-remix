@@ -363,7 +363,7 @@ export default function ProjectsPage() {
           </header>
 
           {/* Tabs Menu & Controls */}
-          <div className="bg-white shrink-0 pr-4 pl-16 lg:px-8 pt-3 flex items-end justify-between overflow-x-auto no-scrollbar">
+          <div className="bg-white shrink-0 pr-4 pl-16 lg:px-8 pt-[14px] flex items-end justify-between">
             <div className="flex gap-4 sm:gap-6 -mb-[1px]">
               {['Tümü', 'Aktif', 'Durduruldu', 'Tamamlandı', 'Arşiv'].map((tab) => (
                 <button
