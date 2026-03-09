@@ -1,5 +1,5 @@
 'use client';
-import { TrendingUp, Minus, ChevronRight, Coins } from 'lucide-react';
+import { TrendingUp, Minus, ChevronRight, Coins, Timer } from 'lucide-react';
 import { AreaChart, Area, ResponsiveContainer, Tooltip } from 'recharts';
 
 const data1 = [
@@ -12,6 +12,10 @@ const data2 = [
 
 const data3 = [
   { date: '16.10.2026', value: 30 }, { date: '17.10.2026', value: 32 }, { date: '18.10.2026', value: 28 }, { date: '19.10.2026', value: 31 }, { date: '20.10.2026', value: 29 }, { date: '21.10.2026', value: 30 }, { date: '22.10.2026', value: 31 }
+];
+
+const data4 = [
+  { date: '16.10.2026', value: 28 }, { date: '17.10.2026', value: 25 }, { date: '18.10.2026', value: 22 }, { date: '19.10.2026', value: 20 }, { date: '20.10.2026', value: 18 }, { date: '21.10.2026', value: 16 }, { date: '22.10.2026', value: 14 }
 ];
 
 const CustomTooltip = ({ active, payload }: any) => {
@@ -27,7 +31,7 @@ const CustomTooltip = ({ active, payload }: any) => {
 
 export function StatsOverview() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
       <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col gap-4 group">
         <div className="flex justify-between items-start">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Aktif Projeler</span>
@@ -127,6 +131,35 @@ export function StatsOverview() {
           <div className="text-xs font-medium text-emerald-100/80">
             ≈ 29.150 ₺
           </div>
+        </div>
+      </div>
+
+      <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col gap-4 group">
+        <div className="flex justify-between items-start">
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ort. İşe Alım Süresi</span>
+          <div className="w-24 h-12">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={data4}>
+                <defs>
+                  <linearGradient id="color4" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#8b5cf6" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#8b5cf6" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <Tooltip content={<CustomTooltip />} />
+                <Area type="monotone" dataKey="value" stroke="#8b5cf6" strokeWidth={2} fillOpacity={1} fill="url(#color4)" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+        <div className="flex items-end justify-between">
+          <div className="flex items-baseline gap-1">
+            <span className="text-3xl font-bold text-slate-900">14</span>
+            <span className="text-sm font-medium text-slate-500">gün</span>
+          </div>
+          <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-1 rounded flex items-center gap-1">
+            -3 gün <TrendingUp size={14} className="transform rotate-180" />
+          </span>
         </div>
       </div>
     </div>

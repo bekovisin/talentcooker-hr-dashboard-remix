@@ -258,8 +258,8 @@ export function BottomWidgets() {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-      <div className="col-span-1 lg:col-span-2 bg-white border border-slate-200 rounded-lg flex flex-col overflow-hidden h-[600px]">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+      <div className="col-span-1 lg:col-span-3 bg-white border border-slate-200 rounded-lg flex flex-col overflow-hidden h-[600px]">
         <div className="p-4 border-b border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-slate-50/50 shrink-0">
           <div className="flex items-center gap-3">
             <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Aday Havuzu Analizi</h3>
@@ -469,10 +469,10 @@ function TrackingItem({ name, time, step, status }: { name: string, time: string
                 animate={isActive ? { scale: [0.8, 1.2, 1] } : false}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className={`w-4 h-4 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-125 cursor-default ${isCompleted
-                    ? `${activeColor}`
-                    : isActive
-                      ? `${activeColor} ring-4 ${activeRing}`
-                      : 'bg-slate-100 border border-slate-200'
+                  ? `${activeColor}`
+                  : isActive
+                    ? `${activeColor} ring-4 ${activeRing}`
+                    : 'bg-slate-100 border border-slate-200'
                   }`}
               >
                 {isCompleted && (

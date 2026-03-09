@@ -47,6 +47,19 @@ export function ProjectTracking() {
       progress: 15,
       completed: 2,
       total: 12
+    },
+    {
+      title: "FinBank - Dijital Pazarlama Uzmanı",
+      badge: "Aktif",
+      badgeColor: "text-emerald-700 bg-emerald-100",
+      description: "Dijital pazarlama stratejileri geliştirmek, sosyal medya kampanyalarını yönetmek ve performans analizleri yaparak dönüşüm oranlarını artırmak...",
+      candidates: 18,
+      stages: 3,
+      date1: "25.03.2026",
+      date2: "25.03.2026 — 05.04.2026",
+      progress: 55,
+      completed: 10,
+      total: 18
     }
   ];
 
@@ -60,7 +73,7 @@ export function ProjectTracking() {
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {projects.map((p, i) => {
           let progressColor = "bg-emerald-500";
           if (p.progress < 40) progressColor = "bg-rose-500";
