@@ -124,7 +124,7 @@ export function ProjectLeaders() {
   };
 
   const themeClasses = getThemeClasses(currentLeader.colorTheme);
-  const radius = 76;
+  const radius = 56;
   const circumference = 2 * Math.PI * radius;
 
   return (
@@ -178,14 +178,14 @@ export function ProjectLeaders() {
                 <circle
                   cx="50%" cy="50%" r={radius}
                   stroke="currentColor"
-                  strokeWidth="10"
+                  strokeWidth="8"
                   fill="transparent"
                   className={themeClasses.circleBg}
                 />
                 <motion.circle
                   cx="50%" cy="50%" r={radius}
                   stroke="currentColor"
-                  strokeWidth="10"
+                  strokeWidth="8"
                   fill="transparent"
                   strokeLinecap="round"
                   className={themeClasses.circleProgress}
@@ -220,7 +220,7 @@ export function ProjectLeaders() {
               <h3 className={`text-xl font-bold tracking-tight ${themeClasses.text}`}>
                 {currentLeader.name}
               </h3>
-              <p className={`font-medium opacity-80 ${themeClasses.textMuted}`}>
+              <p className={`text-xs font-medium opacity-80 ${themeClasses.textMuted}`}>
                 {currentLeader.role}
               </p>
             </div>

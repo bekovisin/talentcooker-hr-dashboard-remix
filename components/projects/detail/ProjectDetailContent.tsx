@@ -81,7 +81,7 @@ export function ProjectDetailContent({ projectId }: { projectId: string }) {
       </div>
 
       {/* Tab Content */}
-      <div className="flex-1 overflow-y-auto p-4 lg:p-8 w-full max-w-[1400px] mx-auto">
+      <div className="flex-1 overflow-y-auto p-4 lg:p-8 w-full">
         {activeTab === 'dashboard' && <ProjectDashboardTab projectId={projectId} onTabChange={setActiveTab} />}
         {activeTab === 'candidates' && <ProjectCandidatesTab projectId={projectId} />}
         {activeTab === 'tracking' && (

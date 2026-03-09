@@ -20,6 +20,10 @@ const data4 = [
   { date: '1', value: 10 }, { date: '2', value: 15 }, { date: '3', value: 20 }, { date: '4', value: 25 }, { date: '5', value: 30 }, { date: '6', value: 35 }, { date: '7', value: 40 }
 ];
 
+const data5 = [
+  { date: '1', value: 40 }, { date: '2', value: 55 }, { date: '3', value: 50 }, { date: '4', value: 60 }, { date: '5', value: 58 }, { date: '6', value: 65 }, { date: '7', value: 62 }
+];
+
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     return (
@@ -81,10 +85,22 @@ export function ProjectStats() {
       chartColor: '#9333ea',
       badgeColor: 'bg-purple-50 text-purple-700',
     },
+    {
+      title: 'Geçme Oranı',
+      value: '%62',
+      change: '+5%',
+      trend: 'up',
+      icon: CheckCircle2,
+      color: 'text-teal-600',
+      bgColor: 'bg-teal-50',
+      chartData: data5,
+      chartColor: '#14b8a6',
+      badgeColor: 'bg-teal-50 text-teal-700',
+    },
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
       {stats.map((stat, index) => (
         <div key={index} className="bg-white rounded-xl p-4 border border-slate-200 shadow-[0_1px_3px_rgb(0_0_0/0.02)] flex flex-col justify-between group">
           <div className="flex justify-between items-start mb-3">

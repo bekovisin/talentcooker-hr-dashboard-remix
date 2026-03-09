@@ -73,6 +73,19 @@ const initialProjects: Project[] = [
     progress: 15,
     completed: 2,
     total: 12
+  },
+  {
+    id: '4',
+    title: "FinBank - Dijital Pazarlama Uzmanı",
+    status: "Aktif",
+    description: "Dijital pazarlama stratejileri geliştirmek, sosyal medya kampanyalarını yönetmek ve performans analizleri yaparak dönüşüm oranlarını artırmak...",
+    candidates: 18,
+    stages: 3,
+    date1: "25.03.2026",
+    date2: "25.03.2026 — 05.04.2026",
+    progress: 55,
+    completed: 10,
+    total: 18
   }
 ];
 
@@ -429,12 +442,12 @@ export default function ProjectsPage() {
 
         {/* Scrollable Main Area */}
         <div className="flex-1 overflow-y-auto w-full relative">
-          <div className="w-full max-w-[1400px] mx-auto p-4 lg:px-8">
+          <div className="w-full p-4 lg:px-8">
 
             {/* Bulk Actions Bar */}
             {isSelectMode && selectedIds.size > 0 && (
               <div className="sticky top-0 z-20 bg-white border-b border-slate-200 shadow-sm animate-in slide-in-from-top-2">
-                <div className="w-full max-w-[1400px] mx-auto py-3 flex justify-between items-center">
+                <div className="w-full py-3 flex justify-between items-center">
                   <span className="text-sm font-bold text-slate-700">{selectedIds.size} proje seçildi</span>
                   <div className="flex items-center gap-2">
                     <DropdownMenu.Root>
@@ -472,7 +485,7 @@ export default function ProjectsPage() {
             )}
 
             {/* Grid Area */}
-            <div className="w-full max-w-[1400px] mx-auto py-4 lg:py-8">
+            <div className="w-full py-4 lg:py-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
 
                 {/* Create New Project Card */}
@@ -583,19 +596,19 @@ export default function ProjectsPage() {
                           {p.description}
                         </p>
 
-                        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[10px] text-slate-500 font-medium mb-4">
+                        <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[12px] text-slate-500 font-medium mb-4">
                           <div className="flex items-center gap-1">
-                            <Users size={10} />
+                            <Users size={12} />
                             <span>{p.candidates} aday</span>
                           </div>
                           <div className="w-1 h-1 rounded-full bg-slate-300" />
                           <div className="flex items-center gap-1">
-                            <Layers size={10} />
+                            <Layers size={12} />
                             <span>{p.stages} aşama</span>
                           </div>
                           <div className="w-1 h-1 rounded-full bg-slate-300" />
                           <div className="flex items-center gap-1">
-                            <Calendar size={10} />
+                            <Calendar size={12} />
                             <span className="line-clamp-1">{p.date1}</span>
                           </div>
                         </div>
