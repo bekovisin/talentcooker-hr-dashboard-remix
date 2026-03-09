@@ -32,32 +32,7 @@ const CustomTooltip = ({ active, payload }: any) => {
 export function StatsOverview() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
-      {/* 1. Kredi Bakiye */}
-      <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg p-5 cursor-pointer hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-10 -mt-10 blur-2xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-8 -mb-8 blur-xl pointer-events-none" />
-
-        <div className="flex justify-between items-center relative z-10">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
-              <Coins size={16} />
-            </div>
-            <span className="text-[11px] font-bold text-emerald-50 tracking-wider">KREDİ BAKİYE</span>
-          </div>
-          <ChevronRight size={16} className="text-emerald-100" />
-        </div>
-        <div className="relative z-10 mt-4">
-          <div className="flex items-baseline gap-1.5 mb-1">
-            <span className="text-3xl font-bold text-white">5.830</span>
-            <span className="text-sm font-medium text-emerald-100">kredi</span>
-          </div>
-          <div className="text-xs font-medium text-emerald-100/80">
-            ≈ 29.150 ₺
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Aktif Projeler */}
+      {/* 1. Aktif Projeler */}
       <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col gap-4 group">
         <div className="flex justify-between items-start">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Aktif Projeler</span>
@@ -84,7 +59,7 @@ export function StatsOverview() {
         </div>
       </div>
 
-      {/* 3. Devam Eden Oturumlar */}
+      {/* 2. Devam Eden Oturumlar */}
       <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col gap-4 group">
         <div className="flex justify-between items-start">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Devam Eden Oturumlar</span>
@@ -111,7 +86,34 @@ export function StatsOverview() {
         </div>
       </div>
 
-      {/* 4. Ort. İşe Alım Süresi — hidden on mobile */}
+      {/* 3. Tamamlanan Envanterler */}
+      <div className="bg-white border border-slate-200 rounded-lg p-5 flex flex-col gap-4 group">
+        <div className="flex justify-between items-start">
+          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Tamamlanan Envanterler</span>
+          <div className="w-24 h-12">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={data3}>
+                <defs>
+                  <linearGradient id="color3" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#94a3b8" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#94a3b8" stopOpacity={0} />
+                  </linearGradient>
+                </defs>
+                <Tooltip content={<CustomTooltip />} />
+                <Area type="monotone" dataKey="value" stroke="#94a3b8" strokeWidth={2} fillOpacity={1} fill="url(#color3)" />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+        <div className="flex items-end justify-between">
+          <span className="text-3xl font-bold text-slate-900">140</span>
+          <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded flex items-center gap-1">
+            Stable <Minus size={14} />
+          </span>
+        </div>
+      </div>
+
+      {/* 4. Ort. İşe Alım Süresi */}
       <div className="hidden lg:flex bg-white border border-slate-200 rounded-lg p-5 flex-col gap-4 group">
         <div className="flex justify-between items-start">
           <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Ort. İşe Alım Süresi</span>
@@ -141,30 +143,28 @@ export function StatsOverview() {
         </div>
       </div>
 
-      {/* 5. Tamamlanan Envanterler — hidden on mobile */}
-      <div className="hidden lg:flex bg-white border border-slate-200 rounded-lg p-5 flex-col gap-4 group">
-        <div className="flex justify-between items-start">
-          <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Tamamlanan Envanterler</span>
-          <div className="w-24 h-12">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={data3}>
-                <defs>
-                  <linearGradient id="color3" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#94a3b8" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#94a3b8" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <Tooltip content={<CustomTooltip />} />
-                <Area type="monotone" dataKey="value" stroke="#94a3b8" strokeWidth={2} fillOpacity={1} fill="url(#color3)" />
-              </AreaChart>
-            </ResponsiveContainer>
+      {/* 5. Kredi Bakiye */}
+      <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-lg p-5 cursor-pointer hover:shadow-md transition-all flex flex-col justify-between relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-10 -mt-10 blur-2xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-8 -mb-8 blur-xl pointer-events-none" />
+
+        <div className="flex justify-between items-center relative z-10">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center text-white">
+              <Coins size={16} />
+            </div>
+            <span className="text-[11px] font-bold text-emerald-50 tracking-wider">KREDİ BAKİYE</span>
           </div>
+          <ChevronRight size={16} className="text-emerald-100" />
         </div>
-        <div className="flex items-end justify-between">
-          <span className="text-3xl font-bold text-slate-900">140</span>
-          <span className="text-xs font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded flex items-center gap-1">
-            Stable <Minus size={14} />
-          </span>
+        <div className="relative z-10 mt-4">
+          <div className="flex items-baseline gap-1.5 mb-1">
+            <span className="text-3xl font-bold text-white">5.830</span>
+            <span className="text-sm font-medium text-emerald-100">kredi</span>
+          </div>
+          <div className="text-xs font-medium text-emerald-100/80">
+            ≈ 29.150 ₺
+          </div>
         </div>
       </div>
     </div>
